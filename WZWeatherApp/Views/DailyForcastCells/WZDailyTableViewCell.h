@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "../../Models/DailyModel.h"
+#import "DailyModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

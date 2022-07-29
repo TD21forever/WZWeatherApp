@@ -7,7 +7,6 @@
 
 #import "HomeView.h"
 #import "WZHeaderTextView.h"
-#import "WZDailyTableViewMainCell.h"
 #import "Masonry.h"
 #import "WZConstant.h"
 

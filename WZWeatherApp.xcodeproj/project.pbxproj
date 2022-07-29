@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E09BFAF2D18E13701087A171 /* libPods-WZWeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E471FB68A63B6D7F629F387F /* libPods-WZWeatherApp.a */; };
-		F523041B2891D89B007D707B /* WZDailyTableViewMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F523041A2891D89B007D707B /* WZDailyTableViewMainCell.m */; };
 		F523041E2891DB37007D707B /* WZDailyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F523041D2891DB37007D707B /* WZDailyTableViewCell.m */; };
 		F52304242892AE63007D707B /* WZConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = F52304232892AE63007D707B /* WZConstant.m */; };
 		F523042B2892D2BF007D707B /* DailyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F523042A2892D2BF007D707B /* DailyModel.m */; };
@@ -16,6 +15,12 @@
 		F52304352892D6AA007D707B /* weatherCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52304332892D6AA007D707B /* weatherCode.plist */; };
 		F52304362892D6AA007D707B /* cityCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52304342892D6AA007D707B /* cityCode.plist */; };
 		F523043A2893078A007D707B /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F52304392893078A007D707B /* LocationManager.m */; };
+		F542D0562893E08A0097792C /* WZHourlyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D0552893E08A0097792C /* WZHourlyCollectionViewCell.m */; };
+		F542D05A2893F95A0097792C /* WZHourlyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D0592893F95A0097792C /* WZHourlyTableViewCell.m */; };
+		F542D05D2893F9E80097792C /* HourlyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D05C2893F9E80097792C /* HourlyModel.m */; };
+		F542D0602893FB2D0097792C /* HourlyDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D05F2893FB2D0097792C /* HourlyDataService.m */; };
+		F542D063289440250097792C /* NowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D062289440250097792C /* NowModel.m */; };
+		F542D066289441560097792C /* NowDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D065289441560097792C /* NowDataService.m */; };
 		F559EE412890EB6F0068208A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE402890EB6F0068208A /* AppDelegate.m */; };
 		F559EE472890EB6F0068208A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE462890EB6F0068208A /* ViewController.m */; };
 		F559EE4C2890EB700068208A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F559EE4B2890EB700068208A /* Assets.xcassets */; };
@@ -25,14 +30,13 @@
 		F5E2FED62891908B008D0910 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E2FED52891908B008D0910 /* HomeView.m */; };
 		F5F1EABB289313B50016B191 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1EABA289313B50016B191 /* NetworkManager.m */; };
 		F5F1EAC028931EB80016B191 /* DailyDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1EABF28931EB80016B191 /* DailyDataService.m */; };
+		F5F1EAC328934AAF0016B191 /* UtilsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1EAC228934AAF0016B191 /* UtilsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		688343A53A55049D8B50D0EF /* Pods-WZWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZWeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-WZWeatherApp/Pods-WZWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8987FCD0C4022EFFABA08D49 /* Pods-WZWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZWeatherApp.release.xcconfig"; path = "Target Support Files/Pods-WZWeatherApp/Pods-WZWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		E471FB68A63B6D7F629F387F /* libPods-WZWeatherApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WZWeatherApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F52304192891D89B007D707B /* WZDailyTableViewMainCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZDailyTableViewMainCell.h; sourceTree = "<group>"; };
-		F523041A2891D89B007D707B /* WZDailyTableViewMainCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZDailyTableViewMainCell.m; sourceTree = "<group>"; };
 		F523041C2891DB36007D707B /* WZDailyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZDailyTableViewCell.h; sourceTree = "<group>"; };
 		F523041D2891DB37007D707B /* WZDailyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZDailyTableViewCell.m; sourceTree = "<group>"; };
 		F52304222892AE63007D707B /* WZConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZConstant.h; sourceTree = "<group>"; };
@@ -45,6 +49,18 @@
 		F52304342892D6AA007D707B /* cityCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityCode.plist; sourceTree = "<group>"; };
 		F52304382893078A007D707B /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		F52304392893078A007D707B /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		F542D0542893E08A0097792C /* WZHourlyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZHourlyCollectionViewCell.h; sourceTree = "<group>"; };
+		F542D0552893E08A0097792C /* WZHourlyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZHourlyCollectionViewCell.m; sourceTree = "<group>"; };
+		F542D0582893F95A0097792C /* WZHourlyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZHourlyTableViewCell.h; sourceTree = "<group>"; };
+		F542D0592893F95A0097792C /* WZHourlyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZHourlyTableViewCell.m; sourceTree = "<group>"; };
+		F542D05B2893F9E80097792C /* HourlyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HourlyModel.h; sourceTree = "<group>"; };
+		F542D05C2893F9E80097792C /* HourlyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HourlyModel.m; sourceTree = "<group>"; };
+		F542D05E2893FB2D0097792C /* HourlyDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HourlyDataService.h; sourceTree = "<group>"; };
+		F542D05F2893FB2D0097792C /* HourlyDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HourlyDataService.m; sourceTree = "<group>"; };
+		F542D061289440250097792C /* NowModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NowModel.h; sourceTree = "<group>"; };
+		F542D062289440250097792C /* NowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NowModel.m; sourceTree = "<group>"; };
+		F542D064289441560097792C /* NowDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NowDataService.h; sourceTree = "<group>"; };
+		F542D065289441560097792C /* NowDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NowDataService.m; sourceTree = "<group>"; };
 		F559EE3C2890EB6F0068208A /* WZWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F559EE3F2890EB6F0068208A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F559EE402890EB6F0068208A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,6 +78,8 @@
 		F5F1EABA289313B50016B191 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		F5F1EABE28931EB80016B191 /* DailyDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DailyDataService.h; sourceTree = "<group>"; };
 		F5F1EABF28931EB80016B191 /* DailyDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyDataService.m; sourceTree = "<group>"; };
+		F5F1EAC128934AAF0016B191 /* UtilsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsManager.h; sourceTree = "<group>"; };
+		F5F1EAC228934AAF0016B191 /* UtilsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UtilsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +116,10 @@
 			children = (
 				F52304292892D2BF007D707B /* DailyModel.h */,
 				F523042A2892D2BF007D707B /* DailyModel.m */,
+				F542D05B2893F9E80097792C /* HourlyModel.h */,
+				F542D05C2893F9E80097792C /* HourlyModel.m */,
+				F542D061289440250097792C /* NowModel.h */,
+				F542D062289440250097792C /* NowModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +129,7 @@
 			children = (
 				F52304282892BBF7007D707B /* HeaderViews */,
 				F52304272892B9F8007D707B /* DailyForcastCells */,
+				F542D0572893F8C50097792C /* HourlyForcastCells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,8 +137,6 @@
 		F52304272892B9F8007D707B /* DailyForcastCells */ = {
 			isa = PBXGroup;
 			children = (
-				F52304192891D89B007D707B /* WZDailyTableViewMainCell.h */,
-				F523041A2891D89B007D707B /* WZDailyTableViewMainCell.m */,
 				F523041C2891DB36007D707B /* WZDailyTableViewCell.h */,
 				F523041D2891DB37007D707B /* WZDailyTableViewCell.m */,
 			);
@@ -147,8 +168,21 @@
 				F52304392893078A007D707B /* LocationManager.m */,
 				F5F1EAB9289313B50016B191 /* NetworkManager.h */,
 				F5F1EABA289313B50016B191 /* NetworkManager.m */,
+				F5F1EAC128934AAF0016B191 /* UtilsManager.h */,
+				F5F1EAC228934AAF0016B191 /* UtilsManager.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		F542D0572893F8C50097792C /* HourlyForcastCells */ = {
+			isa = PBXGroup;
+			children = (
+				F542D0542893E08A0097792C /* WZHourlyCollectionViewCell.h */,
+				F542D0552893E08A0097792C /* WZHourlyCollectionViewCell.m */,
+				F542D0582893F95A0097792C /* WZHourlyTableViewCell.h */,
+				F542D0592893F95A0097792C /* WZHourlyTableViewCell.m */,
+			);
+			path = HourlyForcastCells;
 			sourceTree = "<group>";
 		};
 		F559EE332890EB6F0068208A = {
@@ -174,11 +208,11 @@
 			children = (
 				F559EE3F2890EB6F0068208A /* AppDelegate.h */,
 				F559EE402890EB6F0068208A /* AppDelegate.m */,
+				F523043728930617007D707B /* Manager */,
 				F5F1EABD28931E5B0016B191 /* Service */,
 				F52304252892B9EA007D707B /* Models */,
-				F5F1EABC28931E480016B191 /* Controller */,
-				F523043728930617007D707B /* Manager */,
 				F52304322892D698007D707B /* Category */,
+				F5F1EABC28931E480016B191 /* Controller */,
 				F52304262892B9F0007D707B /* Views */,
 				F5E2FED42891908B008D0910 /* HomeView.h */,
 				F5E2FED52891908B008D0910 /* HomeView.m */,
@@ -208,6 +242,10 @@
 			children = (
 				F5F1EABE28931EB80016B191 /* DailyDataService.h */,
 				F5F1EABF28931EB80016B191 /* DailyDataService.m */,
+				F542D05E2893FB2D0097792C /* HourlyDataService.h */,
+				F542D05F2893FB2D0097792C /* HourlyDataService.m */,
+				F542D064289441560097792C /* NowDataService.h */,
+				F542D065289441560097792C /* NowDataService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -310,18 +348,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				F523042B2892D2BF007D707B /* DailyModel.m in Sources */,
-				F523041B2891D89B007D707B /* WZDailyTableViewMainCell.m in Sources */,
 				F52304312892D691007D707B /* NSURL+WZ.m in Sources */,
 				F523043A2893078A007D707B /* LocationManager.m in Sources */,
 				F5F1EABB289313B50016B191 /* NetworkManager.m in Sources */,
 				F559EE472890EB6F0068208A /* ViewController.m in Sources */,
+				F542D05A2893F95A0097792C /* WZHourlyTableViewCell.m in Sources */,
 				F52304242892AE63007D707B /* WZConstant.m in Sources */,
 				F5F1EAC028931EB80016B191 /* DailyDataService.m in Sources */,
+				F542D0602893FB2D0097792C /* HourlyDataService.m in Sources */,
+				F542D066289441560097792C /* NowDataService.m in Sources */,
 				F559EE412890EB6F0068208A /* AppDelegate.m in Sources */,
 				F5E2FED62891908B008D0910 /* HomeView.m in Sources */,
 				F559EE522890EB700068208A /* main.m in Sources */,
 				F523041E2891DB37007D707B /* WZDailyTableViewCell.m in Sources */,
+				F542D05D2893F9E80097792C /* HourlyModel.m in Sources */,
+				F542D063289440250097792C /* NowModel.m in Sources */,
+				F542D0562893E08A0097792C /* WZHourlyCollectionViewCell.m in Sources */,
 				F559EE5C2890F8CC0068208A /* WZHeaderTextView.m in Sources */,
+				F5F1EAC328934AAF0016B191 /* UtilsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

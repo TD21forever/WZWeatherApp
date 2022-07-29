@@ -13,14 +13,14 @@
     UILabel * _location;
     UILabel * _temperature;
     UILabel * _weather;
-    UILabel * _highLow;
+//    UILabel * _highLow;
     UIView * _container;
 }
 
 - (void)setupUI{
     // location
     _location = [UILabel new];
-    _location.text = @"萧山区";
+    _location.text = @"";
     _location.textColor = UIColor.whiteColor;
     _location.font = [UIFont systemFontOfSize:40];
     
@@ -28,26 +28,26 @@
     
     // temperature
     _temperature = [UILabel new];
-    _temperature.text = @"29°";
+    _temperature.text = @"";
     _temperature.textColor = [UIColor whiteColor];
     _temperature.font = [UIFont systemFontOfSize:50];
     
     [_container addSubview:_temperature];
     
     _weather = [UILabel new];
-    _weather.text = @"大部分晴朗";
+    _weather.text = @"";
     _weather.textColor = [UIColor whiteColor];
     _weather.font = [UIFont systemFontOfSize:30];
 
     
     [_container addSubview:_weather];
     
-    _highLow = [UILabel new];
-    _highLow.text = @"最高35 最低26";
-    _highLow.textColor = [UIColor whiteColor];
-    _highLow.font = [UIFont systemFontOfSize:30];
-
-    [_container addSubview:_highLow];
+//    _highLow = [UILabel new];
+//    _highLow.text = @"";
+//    _highLow.textColor = [UIColor whiteColor];
+//    _highLow.font = [UIFont systemFontOfSize:30];
+//
+//    [_container addSubview:_highLow];
 }
 
 - (void)addConstrains{
@@ -71,12 +71,12 @@
         make.top.equalTo(_temperature.mas_bottom).offset(paddings.top);
         
     }];
-    [_highLow mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.centerX.equalTo(_container.mas_centerX);
-        make.top.equalTo(_weather.mas_bottom).offset(paddings.top);
-        
-    }];
+//    [_highLow mas_makeConstraints:^(MASConstraintMaker *make) {
+//
+//        make.centerX.equalTo(_container.mas_centerX);
+//        make.top.equalTo(_weather.mas_bottom).offset(paddings.top);
+//
+//    }];
     
 }
 
@@ -87,6 +87,17 @@
         [self addConstrains];
     }
     return self;
+}
+
+
+- (void)setNowModel:(NowModel *)nowModel{
+    _nowModel = nowModel;
+    
+    _location.text = @"地理位置";
+    _temperature.text = [NSString stringWithFormat:@"%@°",nowModel.temp];
+    _weather.text = [NSString stringWithFormat:@"%@°",nowModel.text];
+//    _highLow.text = [NSString stringWithFormat:@"%@/%@",nowModel]
+    
 }
 
 

@@ -7,6 +7,9 @@
 
 #import "WZDailyTableViewCell.h"
 #import "Masonry.h"
+#import "SDWebImage.h"
+#import "UtilsManager.h"
+
 @implementation WZDailyTableViewCell{
     UILabel * _dayLabel;
     UIImageView * _image;
@@ -85,7 +88,8 @@
     _lowTmp.text = [NSString stringWithFormat:@"%@°",dailyModel.tempMin];
     _highTmp.text = [NSString stringWithFormat:@"%@°",dailyModel.tempMax];
     
-    _image = [[UIImageView alloc]initWithImage:[UIImage systemImageNamed:@"sun.max"]];
+    NSURL * url = [UtilsManager.shared imageUrlFromWeatherCode:_dailyModel.iconDay];
+    [UtilsManager.shared genImageView:_image withUrl:url];
     
 }
 
