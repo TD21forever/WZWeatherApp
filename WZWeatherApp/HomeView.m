@@ -9,12 +9,9 @@
 #import "WZHeaderTextView.h"
 #import "Masonry.h"
 #import "WZConstant.h"
-
+#import "SDWebImage.h"
 
 @interface HomeView()
-
-
-@property (nonatomic,strong) WZHeaderTextView *header;
 
 @end
 
@@ -25,15 +22,28 @@
 {
     self = [super init];
     if (self) {
-        WZHeaderTextView *header = [WZHeaderTextView new];
-        header.backgroundColor = [UIColor grayColor];
-        header.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 400);
+        
+        UIImageView * backgroundImage = [UIImageView new];
+        NSURL * url = [NSURL URLWithString:@"https://picsum.photos/id/1036/600/1000"];
+        [backgroundImage sd_setImageWithURL:url];
+        [backgroundImage sizeThatFits:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT)];
+        
+        _headerView = [WZHeaderTextView new];
+        _headerView.backgroundColor = [UIColor clearColor];
+        _headerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, SCREEN_HEIGHT);
         
         self.tableView = [[UITableView alloc]init];
-        self.tableView.pagingEnabled = YES;
-        self.tableView.tableHeaderView = header;
-        [self addSubview:self.tableView];
+        self.tableView.pagingEnabled = NO;
+        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableView.showsVerticalScrollIndicator = NO;
 
+        self.tableView.backgroundColor = [UIColor clearColor];
+        self.tableView.tableHeaderView = _headerView;
+        self.tableView.backgroundView = backgroundImage;
+        
+        [self addSubview:self.tableView];
+        
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];

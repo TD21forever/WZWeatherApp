@@ -17,14 +17,16 @@
 #import "HourlyDataService.h"
 #import "WZHourlyCollectionViewCell.h"
 #import "WZHourlyTableViewCell.h"
+#import "NowDataService.h"
 
 #define Height [UIScreen mainScreen].bounds.size.height
 #define Width [UIScreen mainScreen].bounds.size.width
 
-@interface ViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic,strong) HomeView* home;
 @property (nonatomic,strong) DailyDataService* daily;
 @property (nonatomic,strong) HourlyDataService* hourly;
+@property (nonatomic,strong) NowDataService* now;
 
 @property (nonatomic,strong) NSArray* sectionNames;
 @property (nonatomic,strong) NSMutableArray* tableViewData;
@@ -40,6 +42,7 @@
 - (void)initService {
     _daily = [DailyDataService new];
     _hourly = [HourlyDataService new];
+    _now = [NowDataService new];
 }
 
 - (void)viewDidLoad {
@@ -54,25 +57,25 @@
     }];
     
     [_hourly fetchData:^{
-        NSLog(@"%@",self->_hourly.hourlyArray);
+        NSLog(@"%@ hourly",self->_hourly.hourlyArray);
         [self->_home.tableView reloadData];
     }];
     
+    [_now fetchData:^{
+        NSLog(@"%@ now now model",self->_now.nowModel);
+        self->_home.headerView.nowModel = self->_now.nowModel;
+        [self->_home.tableView reloadData];
+    }];
     
-    
-    NSArray *sec1 = @[@"1", @"2", @"3"];
     _sectionNames = @[@"Section1",@"Section2"];
     
-    _tableViewData = [NSMutableArray new];
-    
-    [_tableViewData addObject:sec1];
-
     
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.home = [HomeView new];
     self.home.frame = CGRectMake(0, 0, Width, Height);
     [self.view addSubview:self.home];
+    
     self.home.tableView.delegate = self;
     self.home.tableView.dataSource = self;
     
@@ -106,12 +109,12 @@
     if(indexPath.section == 1){
         WZDailyTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([_dailyCell class])];
         cell.dailyModel = self.daily.dailyArray[indexPath.row];
-        cell.backgroundColor =  [UIColor secondarySystemBackgroundColor];
+        cell.backgroundColor =  [UIColor clearColor];
         return cell;
     } else if(indexPath.section == 0){
         WZHourlyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([_hourlyCell class])];
         
-        cell.backgroundColor = [UIColor lightGrayColor];
+        cell.backgroundColor = [UIColor grayColor];
         cell.hourlyArray = _hourly.hourlyArray;
         
         return cell;
@@ -121,13 +124,16 @@
     return [UITableViewCell new];
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
-        return 55;
+        return 200;
     }else{
         return 24;
     }
     
 }
+
+
 
 @end

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NowDataService : NSObject
 
-@property (strong,nonatomic) NSMutableArray<NowModel*> * nowArray;
+@property (strong,nonatomic) NowModel * nowModel;
 
 - (void)fetchData:(void (^)(void)) callBack;
 

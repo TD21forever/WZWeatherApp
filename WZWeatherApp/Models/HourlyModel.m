@@ -14,7 +14,7 @@
 
 + (NSDictionary*)modelCustomPropertyMapper{
     return @{
-        @"date":@"fxDate"
+        @"date":@"fxTime"
     };
 }
 - (instancetype)initWithDict:(NSDictionary*) data{

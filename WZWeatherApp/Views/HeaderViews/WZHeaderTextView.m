@@ -91,6 +91,8 @@
 
 
 - (void)setNowModel:(NowModel *)nowModel{
+    
+    NSLog(@"setModel中");
     _nowModel = nowModel;
     
     _location.text = @"地理位置";

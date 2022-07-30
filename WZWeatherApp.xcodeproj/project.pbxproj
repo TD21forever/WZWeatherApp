@@ -21,6 +21,7 @@
 		F542D0602893FB2D0097792C /* HourlyDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D05F2893FB2D0097792C /* HourlyDataService.m */; };
 		F542D063289440250097792C /* NowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D062289440250097792C /* NowModel.m */; };
 		F542D066289441560097792C /* NowDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D065289441560097792C /* NowDataService.m */; };
+		F542D0682894D4170097792C /* hourly.json in Resources */ = {isa = PBXBuildFile; fileRef = F542D0672894D4170097792C /* hourly.json */; };
 		F559EE412890EB6F0068208A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE402890EB6F0068208A /* AppDelegate.m */; };
 		F559EE472890EB6F0068208A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE462890EB6F0068208A /* ViewController.m */; };
 		F559EE4C2890EB700068208A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F559EE4B2890EB700068208A /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		F542D062289440250097792C /* NowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NowModel.m; sourceTree = "<group>"; };
 		F542D064289441560097792C /* NowDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NowDataService.h; sourceTree = "<group>"; };
 		F542D065289441560097792C /* NowDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NowDataService.m; sourceTree = "<group>"; };
+		F542D0672894D4170097792C /* hourly.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hourly.json; sourceTree = "<group>"; };
 		F559EE3C2890EB6F0068208A /* WZWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F559EE3F2890EB6F0068208A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F559EE402890EB6F0068208A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				F542D05F2893FB2D0097792C /* HourlyDataService.m */,
 				F542D064289441560097792C /* NowDataService.h */,
 				F542D065289441560097792C /* NowDataService.m */,
+				F542D0672894D4170097792C /* hourly.json */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F52304362892D6AA007D707B /* cityCode.plist in Resources */,
+				F542D0682894D4170097792C /* hourly.json in Resources */,
 				F52304352892D6AA007D707B /* weatherCode.plist in Resources */,
 				F559EE4F2890EB700068208A /* LaunchScreen.storyboard in Resources */,
 				F559EE4C2890EB700068208A /* Assets.xcassets in Resources */,
