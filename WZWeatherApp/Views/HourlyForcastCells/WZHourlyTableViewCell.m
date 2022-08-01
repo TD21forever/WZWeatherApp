@@ -15,7 +15,6 @@
 
 @interface WZHourlyTableViewCell()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic,strong) UITableViewCell* container;
 
 @end
 
@@ -23,7 +22,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
-        _container = self;
+
         [self createUI];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -35,26 +34,23 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.itemSize = CGSizeMake(100, 100);
-    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout.itemSize = CGSizeMake(80, 100);
+    layout.sectionInset = UIEdgeInsetsMake(10,10,10,10);
     
-    self.collectionView.scrollEnabled = YES;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.collectionView.showsHorizontalScrollIndicator = YES;
+
    
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
-    
+    self.collectionView.showsHorizontalScrollIndicator = NO;
     _collectionView.backgroundColor = [UIColor clearColor];
-
- 
 
     [_collectionView registerClass:[WZHourlyCollectionViewCell class] forCellWithReuseIdentifier:@"collectionCell"];
     
-    [_container addSubview:_collectionView];
+    [self.contentView addSubview:_collectionView];
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self);
-        make.top.and.left.equalTo(self).offset(10);
+        make.top.and.left.equalTo(self);
         make.width.mas_equalTo(SCREEN_WIDTH);
     }];
     
@@ -71,24 +67,18 @@
     return [_hourlyArray count];
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(100, 100);
-}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     WZHourlyCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor clearColor];
     cell.hourlyModel = _hourlyArray[indexPath.row];
-    cell.backgroundColor = [UIColor redColor];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
-    
-    
     
 }
 
 - (void)setHourlyArray:(NSMutableArray<HourlyModel *> *)hourlyArray{
-    NSLog(@"SET HOURLY ARRAY");
+    NSLog(@"Set hourly Array %@",hourlyArray);
     _hourlyArray = hourlyArray;
     [_collectionView reloadData];
 }

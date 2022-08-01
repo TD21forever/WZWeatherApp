@@ -18,6 +18,7 @@
 #import "WZHourlyCollectionViewCell.h"
 #import "WZHourlyTableViewCell.h"
 #import "NowDataService.h"
+#import "LocationTableVC.h"
 
 #define Height [UIScreen mainScreen].bounds.size.height
 #define Width [UIScreen mainScreen].bounds.size.width
@@ -33,6 +34,10 @@
 
 @property (nonatomic,strong) WZDailyTableViewCell * dailyCell;
 @property (nonatomic,strong) WZHourlyTableViewCell * hourlyCell;
+@property (nonatomic,strong) NSString* currentLocation;
+
+@property (nonatomic,strong) CityModel* cityModel;
+@property (nonatomic,strong) CityModel* curCity;
 
 @end
 
@@ -45,30 +50,28 @@
     _now = [NowDataService new];
 }
 
+
+- (CityModel*)cityModel{
+    if(!_cityModel){
+        _cityModel = [CityModel new];
+    }
+    return _cityModel;
+}
+
+- (CityModel*)curCity{
+    if(!_curCity){
+        _curCity = self.cityModel.cityArray[0];
+    }
+    return _curCity;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self initService];
+    self.navigationController.navigationBar.translucent = NO;
     
-    [_daily fetchData:^{
-        NSLog(@"%@",self->_daily.dailyArray);
-        [self->_home.tableView reloadData];
-
-    }];
-    
-    [_hourly fetchData:^{
-        NSLog(@"%@ hourly",self->_hourly.hourlyArray);
-        [self->_home.tableView reloadData];
-    }];
-    
-    [_now fetchData:^{
-        NSLog(@"%@ now now model",self->_now.nowModel);
-        self->_home.headerView.nowModel = self->_now.nowModel;
-        [self->_home.tableView reloadData];
-    }];
-    
-    _sectionNames = @[@"Section1",@"Section2"];
-    
+ 
     
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor lightGrayColor];
@@ -79,6 +82,7 @@
     self.home.tableView.delegate = self;
     self.home.tableView.dataSource = self;
     
+    self.home.headerView.curCity = self.curCity;
 
     _dailyCell = [WZDailyTableViewCell new];
     _hourlyCell = [WZHourlyTableViewCell new];
@@ -87,11 +91,46 @@
     
     [self.home.tableView registerClass:[_hourlyCell class] forCellReuseIdentifier: NSStringFromClass([_hourlyCell class])];
     
+    [self setupNavigationBarItems];
+    
+    [self fetchData];
+   
+    
 }
 
+- (void)fetchData{
+    [_daily fetchData:self.curCity callback:^{
+        NSLog(@"current city %@",self.daily.dailyArray);
+        self->_home.headerView.dailyModel = self->_daily.dailyArray[0];
+        [self->_home.tableView reloadData];
+    }];
+    
+    [_hourly fetchData:self.curCity callback:^{
+        [self->_home.tableView reloadData];
+    }];
+
+    
+    [_now fetchData:self.curCity callback:^{
+        self->_home.headerView.nowModel = self->_now.nowModel;
+        [self->_home.tableView reloadData];
+    }];
+}
+
+- (void)setupNavigationBarItems{
+    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage systemImageNamed:@"location.magnifyingglass"] style:UIBarButtonItemStylePlain target:self action:@selector(pressLeftBtn:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    
+
+}
+
+- (void)pressLeftBtn:(UIBarButtonItem*)btn{
+    LocationTableVC * locationVC = [[LocationTableVC alloc]init];
+    [self.navigationController pushViewController:locationVC animated:YES];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [_sectionNames count];
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -114,7 +153,7 @@
     } else if(indexPath.section == 0){
         WZHourlyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([_hourlyCell class])];
         
-        cell.backgroundColor = [UIColor grayColor];
+        cell.backgroundColor = [UIColor clearColor];
         cell.hourlyArray = _hourly.hourlyArray;
         
         return cell;
@@ -127,9 +166,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
-        return 200;
+        return 120;
     }else{
-        return 24;
+        return 44;
     }
     
 }

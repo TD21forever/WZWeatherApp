@@ -13,7 +13,7 @@
     UILabel * _location;
     UILabel * _temperature;
     UILabel * _weather;
-//    UILabel * _highLow;
+    UILabel * _highLow;
     UIView * _container;
 }
 
@@ -30,7 +30,7 @@
     _temperature = [UILabel new];
     _temperature.text = @"";
     _temperature.textColor = [UIColor whiteColor];
-    _temperature.font = [UIFont systemFontOfSize:50];
+    _temperature.font = [UIFont systemFontOfSize:80];
     
     [_container addSubview:_temperature];
     
@@ -42,12 +42,12 @@
     
     [_container addSubview:_weather];
     
-//    _highLow = [UILabel new];
-//    _highLow.text = @"";
-//    _highLow.textColor = [UIColor whiteColor];
-//    _highLow.font = [UIFont systemFontOfSize:30];
-//
-//    [_container addSubview:_highLow];
+    _highLow = [UILabel new];
+    _highLow.text = @"";
+    _highLow.textColor = [UIColor whiteColor];
+    _highLow.font = [UIFont systemFontOfSize:30];
+
+    [_container addSubview:_highLow];
 }
 
 - (void)addConstrains{
@@ -71,12 +71,12 @@
         make.top.equalTo(_temperature.mas_bottom).offset(paddings.top);
         
     }];
-//    [_highLow mas_makeConstraints:^(MASConstraintMaker *make) {
-//
-//        make.centerX.equalTo(_container.mas_centerX);
-//        make.top.equalTo(_weather.mas_bottom).offset(paddings.top);
-//
-//    }];
+    [_highLow mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.centerX.equalTo(_container.mas_centerX);
+        make.top.equalTo(_weather.mas_bottom).offset(paddings.top);
+
+    }];
     
 }
 
@@ -92,15 +92,21 @@
 
 - (void)setNowModel:(NowModel *)nowModel{
     
-    NSLog(@"setModel中");
     _nowModel = nowModel;
     
-    _location.text = @"地理位置";
     _temperature.text = [NSString stringWithFormat:@"%@°",nowModel.temp];
     _weather.text = [NSString stringWithFormat:@"%@°",nowModel.text];
-//    _highLow.text = [NSString stringWithFormat:@"%@/%@",nowModel]
     
 }
 
+- (void)setDailyModel:(DailyModel *)dailyModel{
+    _dailyModel = dailyModel;
+    _highLow.text = [NSString stringWithFormat:@"%@°/%@°",dailyModel.tempMin,dailyModel.tempMax];
+}
 
+- (void)setCurCity:(CityModel *)curCity{
+    NSLog(@"Set cur city");
+    _curCity = curCity;
+    _location.text = curCity.cityChineseName;
+}
 @end

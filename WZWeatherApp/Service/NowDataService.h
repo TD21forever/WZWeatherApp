@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import "NowModel.h"
+#import "CityModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,8 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong,nonatomic) NowModel * nowModel;
 
-- (void)fetchData:(void (^)(void)) callBack;
-
+- (void)fetchData:(CityModel*)city callback:(void (^)(void))callBack;
 
 @end
 

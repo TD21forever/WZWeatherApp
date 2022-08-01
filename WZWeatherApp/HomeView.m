@@ -30,7 +30,7 @@
         
         _headerView = [WZHeaderTextView new];
         _headerView.backgroundColor = [UIColor clearColor];
-        _headerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, SCREEN_HEIGHT);
+        _headerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, SCREEN_HEIGHT / 2);
         
         self.tableView = [[UITableView alloc]init];
         self.tableView.pagingEnabled = NO;
@@ -47,6 +47,8 @@
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];
+        
+        
         
     }
     return self;

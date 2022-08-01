@@ -11,8 +11,8 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define WEATHER_ID @"HE2207282219281914"
 //#define WEATHER_KEY @"8e9cd25600764366883ed1f4dfef7110"
-#define WEATHER_KEY @"514e5bd93d3f458c886f81330a3266f4"
-#define DAILY_API @"https://devapi.qweather.com/v7/weather/3d"
+#define WEATHER_KEY @"a83ae2e814284c3eb8079b65bd63db5e"
+#define DAILY_API @"https://devapi.qweather.com/v7/weather/7d"
 #define HOURLY_API @"https://devapi.qweather.com/v7/weather/24h"
 #define NOW_API @"https://devapi.qweather.com/v7/weather/now?"
 

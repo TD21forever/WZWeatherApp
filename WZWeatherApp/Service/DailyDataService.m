@@ -10,6 +10,8 @@
 #import "WZConstant.h"
 #import "DailyModel.h"
 #import "YYModel.h"
+#import "CityModel.h"
+#import "NSString+WZ.h"
 
 @interface DailyDataService()
 
@@ -25,17 +27,16 @@
     return self;
 }
 
-- (void)fetchData:(void (^)(void))callBack{
+- (void)fetchData:(CityModel*)city callback:(void (^)(void))callBack{
 
     NSDictionary * params = @{
-        @"location" : @"101010100",
+        @"location" : [NSString getCityCode:city.cityCode],
         @"key" : WEATHER_KEY
     };
 
     [[NetworkManager shared] simpleGet:DAILY_API parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-
-        __typeof__(self) __weak wself = self;
         
+        __typeof__(self) __weak wself = self;
         for(NSDictionary* data in responseObject[@"daily"]){
             DailyModel* item = [[DailyModel alloc] initWithDict:data];
             [wself.dailyArray addObject:item];

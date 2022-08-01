@@ -10,17 +10,21 @@
 #import "SDWebImage.h"
 #import "UtilsManager.h"
 
+
+#define FONT_SIZE 18
+#define IMAGE_SIZE CGSizeMake(24, 24)
+
 @implementation WZDailyTableViewCell{
     UILabel * _dayLabel;
     UIImageView * _image;
     UILabel * _lowTmp;
     UILabel * _highTmp;
-    UIView * _container;
+
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
-        _container = self;
+
         [self createUI];
     }
     return self;
@@ -32,49 +36,55 @@
     // 日期
     _dayLabel = [UILabel new];
     _dayLabel.text = self.dailyModel.textDay;
-    _dayLabel.font = [UIFont systemFontOfSize:22];
-    
-    [_container addSubview:_dayLabel];
+    _dayLabel.font = [UIFont systemFontOfSize:FONT_SIZE];
+    _dayLabel.textColor = [UIColor whiteColor];
+
+    [self.contentView addSubview:_dayLabel];
     
     [_dayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.edges.insets(padding);
-        make.centerY.equalTo(_container.mas_centerY);
-        make.left.equalTo(_container.mas_left).offset(10);
+        make.centerY.equalTo(self.mas_centerY);
+        make.left.equalTo(self.mas_left).offset(15);
     }];
     
     // 图片
     _image = [[UIImageView alloc]initWithImage:[UIImage systemImageNamed:@"sun.max"]];
-    
-    [_container addSubview:_image];
+    [_image sizeToFit];
+    [_image setTintColor:[UIColor greenColor]];
+    [self.contentView addSubview:_image];
     
     [_image mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(_container.mas_centerY);
-        make.left.equalTo(_dayLabel.mas_right).offset(10);
-        make.size.mas_equalTo(CGSizeMake(40, 40));
+        make.centerY.equalTo(self.mas_centerY);
+        make.left.equalTo(_dayLabel.mas_right).offset(40);
+        make.size.mas_equalTo(IMAGE_SIZE);
     }];
     
 //    // 最低气温
     _lowTmp = [UILabel new];
     _lowTmp.text = self.dailyModel.tempMin;
-    _lowTmp.font = [UIFont systemFontOfSize:22];
+    _lowTmp.font = [UIFont systemFontOfSize:FONT_SIZE];
+    _lowTmp.textColor = [UIColor whiteColor];
 
-    [_container addSubview:_lowTmp];
+    [self.contentView addSubview:_lowTmp];
 
-    [_lowTmp mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(_container.mas_centerY);
-        make.left.equalTo(_image.mas_right).offset(20);
-    }];
+  
 //
 //    // 最高气温
     _highTmp = [UILabel new];
     _highTmp.text = self.dailyModel.tempMax;
-    _highTmp.font = [UIFont systemFontOfSize:22];
+    _highTmp.font = [UIFont systemFontOfSize:FONT_SIZE];
+    _highTmp.textColor = [UIColor whiteColor];
 
-    [_container addSubview:_highTmp];
+    [self.contentView addSubview:_highTmp];
 
     [_highTmp mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(_container.mas_centerY);
-        make.left.equalTo(_lowTmp.mas_right).offset(20);
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.equalTo(self.mas_right).offset(-20);
+    }];
+    
+    [_lowTmp mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.equalTo(_highTmp.mas_left).offset(-30);
     }];
     
     

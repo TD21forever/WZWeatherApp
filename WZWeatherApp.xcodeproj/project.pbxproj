@@ -28,6 +28,9 @@
 		F559EE4F2890EB700068208A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F559EE4D2890EB700068208A /* LaunchScreen.storyboard */; };
 		F559EE522890EB700068208A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE512890EB700068208A /* main.m */; };
 		F559EE5C2890F8CC0068208A /* WZHeaderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE5B2890F8CC0068208A /* WZHeaderTextView.m */; };
+		F5767F7B2897102A00C6B7CD /* LocationTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F5767F7A2897102A00C6B7CD /* LocationTableVC.m */; };
+		F5767F7E2897132300C6B7CD /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5767F7D2897132300C6B7CD /* CityModel.m */; };
+		F5767F812898698100C6B7CD /* NSString+WZ.m in Sources */ = {isa = PBXBuildFile; fileRef = F5767F802898698100C6B7CD /* NSString+WZ.m */; };
 		F5E2FED62891908B008D0910 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E2FED52891908B008D0910 /* HomeView.m */; };
 		F5F1EABB289313B50016B191 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1EABA289313B50016B191 /* NetworkManager.m */; };
 		F5F1EAC028931EB80016B191 /* DailyDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1EABF28931EB80016B191 /* DailyDataService.m */; };
@@ -74,6 +77,12 @@
 		F559EE512890EB700068208A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F559EE5A2890F8CC0068208A /* WZHeaderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZHeaderTextView.h; sourceTree = "<group>"; };
 		F559EE5B2890F8CC0068208A /* WZHeaderTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZHeaderTextView.m; sourceTree = "<group>"; };
+		F5767F792897102A00C6B7CD /* LocationTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationTableVC.h; sourceTree = "<group>"; };
+		F5767F7A2897102A00C6B7CD /* LocationTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationTableVC.m; sourceTree = "<group>"; };
+		F5767F7C2897132300C6B7CD /* CityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		F5767F7D2897132300C6B7CD /* CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		F5767F7F2898698100C6B7CD /* NSString+WZ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WZ.h"; sourceTree = "<group>"; };
+		F5767F802898698100C6B7CD /* NSString+WZ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WZ.m"; sourceTree = "<group>"; };
 		F5E2FED42891908B008D0910 /* HomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
 		F5E2FED52891908B008D0910 /* HomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
 		F5F1EAB9289313B50016B191 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -122,6 +131,8 @@
 				F542D05C2893F9E80097792C /* HourlyModel.m */,
 				F542D061289440250097792C /* NowModel.h */,
 				F542D062289440250097792C /* NowModel.m */,
+				F5767F7C2897132300C6B7CD /* CityModel.h */,
+				F5767F7D2897132300C6B7CD /* CityModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,6 +170,8 @@
 			children = (
 				F523042F2892D691007D707B /* NSURL+WZ.h */,
 				F52304302892D691007D707B /* NSURL+WZ.m */,
+				F5767F7F2898698100C6B7CD /* NSString+WZ.h */,
+				F5767F802898698100C6B7CD /* NSString+WZ.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -218,6 +231,8 @@
 				F52304262892B9F0007D707B /* Views */,
 				F5E2FED42891908B008D0910 /* HomeView.h */,
 				F5E2FED52891908B008D0910 /* HomeView.m */,
+				F5767F792897102A00C6B7CD /* LocationTableVC.h */,
+				F5767F7A2897102A00C6B7CD /* LocationTableVC.m */,
 				F52304342892D6AA007D707B /* cityCode.plist */,
 				F52304332892D6AA007D707B /* weatherCode.plist */,
 				F52304222892AE63007D707B /* WZConstant.h */,
@@ -355,6 +370,7 @@
 				F52304312892D691007D707B /* NSURL+WZ.m in Sources */,
 				F523043A2893078A007D707B /* LocationManager.m in Sources */,
 				F5F1EABB289313B50016B191 /* NetworkManager.m in Sources */,
+				F5767F7E2897132300C6B7CD /* CityModel.m in Sources */,
 				F559EE472890EB6F0068208A /* ViewController.m in Sources */,
 				F542D05A2893F95A0097792C /* WZHourlyTableViewCell.m in Sources */,
 				F52304242892AE63007D707B /* WZConstant.m in Sources */,
@@ -365,8 +381,10 @@
 				F5E2FED62891908B008D0910 /* HomeView.m in Sources */,
 				F559EE522890EB700068208A /* main.m in Sources */,
 				F523041E2891DB37007D707B /* WZDailyTableViewCell.m in Sources */,
+				F5767F7B2897102A00C6B7CD /* LocationTableVC.m in Sources */,
 				F542D05D2893F9E80097792C /* HourlyModel.m in Sources */,
 				F542D063289440250097792C /* NowModel.m in Sources */,
+				F5767F812898698100C6B7CD /* NSString+WZ.m in Sources */,
 				F542D0562893E08A0097792C /* WZHourlyCollectionViewCell.m in Sources */,
 				F559EE5C2890F8CC0068208A /* WZHeaderTextView.m in Sources */,
 				F5F1EAC328934AAF0016B191 /* UtilsManager.m in Sources */,

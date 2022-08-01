@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HourlyModel.h"
+#import "CityModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,8 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong,nonatomic) NSMutableArray<HourlyModel*>* hourlyArray;
 
-- (void)fetchData:(void (^)(void)) callBack;
-
+- (void)fetchData:(CityModel*)city callback:(void (^)(void))callBack;
 @end
 
 NS_ASSUME_NONNULL_END

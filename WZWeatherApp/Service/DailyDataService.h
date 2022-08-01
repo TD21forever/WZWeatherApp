@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DailyModel.h"
-
+#import "CityModel.h"
 /*
  1  block类型: int(^)(int, int)
  2  block变量: block
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong,nonatomic) NSMutableArray<DailyModel*>* dailyArray;
 
-- (void)fetchData:(void (^)(void))callBack;
+- (void)fetchData:(CityModel*)city callback:(void (^)(void))callBack;
 
 @end
 
