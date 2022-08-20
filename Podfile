@@ -11,4 +11,6 @@ target 'WZWeatherApp' do
   pod 'AFNetworking'
   pod 'YYModel'
   pod 'SDWebImage'
+  pod 'MJRefresh'
+  pod 'YYCache'
 end

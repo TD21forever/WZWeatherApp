@@ -23,6 +23,16 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
 
+        
+//        self.backgroundColor = [UIColor grayColor];
+//        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
+
+//        UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//        UIVisualEffectView * blurEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
+//        blurEffectView.frame = self.contentView.bounds;
+//        blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//        [self.contentView addSubview:blurEffectView];
         [self createUI];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -78,7 +88,6 @@
 }
 
 - (void)setHourlyArray:(NSMutableArray<HourlyModel *> *)hourlyArray{
-    NSLog(@"Set hourly Array %@",hourlyArray);
     _hourlyArray = hourlyArray;
     [_collectionView reloadData];
 }

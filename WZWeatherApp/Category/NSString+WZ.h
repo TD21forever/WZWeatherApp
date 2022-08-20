@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString*)getCityCode:(NSString*)cityCode;
 
++ (NSString *)dateExchangeToWeek:(NSString *)day;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

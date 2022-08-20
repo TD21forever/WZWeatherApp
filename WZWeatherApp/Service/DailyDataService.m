@@ -13,6 +13,8 @@
 #import "CityModel.h"
 #import "NSString+WZ.h"
 
+
+
 @interface DailyDataService()
 
 
@@ -27,7 +29,7 @@
     return self;
 }
 
-- (void)fetchData:(CityModel*)city callback:(void (^)(void))callBack{
+- (void)fetchData:(CityModel*)city callback:(void (^)(NSMutableArray* dailyArray))callBack{
 
     NSDictionary * params = @{
         @"location" : [NSString getCityCode:city.cityCode],
@@ -36,13 +38,12 @@
 
     [[NetworkManager shared] simpleGet:DAILY_API parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        __typeof__(self) __weak wself = self;
+        NSMutableArray* dailyArray = [NSMutableArray new];
         for(NSDictionary* data in responseObject[@"daily"]){
             DailyModel* item = [[DailyModel alloc] initWithDict:data];
-            [wself.dailyArray addObject:item];
+            [dailyArray addObject:item];
         }
-        
-        callBack();
+        callBack(dailyArray);
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"%@",error);

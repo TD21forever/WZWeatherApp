@@ -14,9 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NowDataService : NSObject
 
-@property (strong,nonatomic) NowModel * nowModel;
-
-- (void)fetchData:(CityModel*)city callback:(void (^)(void))callBack;
+- (void)fetchData:(CityModel*)city callback:(void (^)(NowModel*))callBack;
 
 @end
 

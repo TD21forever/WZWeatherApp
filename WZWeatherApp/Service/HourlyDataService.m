@@ -20,7 +20,7 @@
     return self;
 }
 
-- (void)fetchData:(CityModel*)city callback:(void (^)(void))callBack{
+- (void)fetchData:(CityModel*)city callback:(MyBlock)callBack{
     NSDictionary * params = @{
 
         @"location" : [NSString getCityCode: city.cityCode],
@@ -29,28 +29,18 @@
 
 
     [[NetworkManager shared] simpleGet:HOURLY_API parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-
-        __typeof__(self) __weak wself = self;
-        NSLog(@"%@",responseObject[@"hourly"]);
+        
+        NSMutableArray* hourlyArray = [NSMutableArray new];
         for(NSDictionary* data in responseObject[@"hourly"]){
             HourlyModel* item = [[HourlyModel alloc] initWithDict:data];
-            [wself.hourlyArray addObject:item];
+            [hourlyArray addObject:item];
         }
 
-        callBack();
+        callBack(hourlyArray);
 
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"======%@",error);
         }];
-    
-//        NSFileManager * manager = [NSFileManager defaultManager];
-//        NSDate * content = [manager contentsAtPath:@"/Users/wenzhuo/Demos/iOS/Swift/Tutorial/WZWeatherApp/WZWeatherApp/Service/hourly.json"];
-//        NSDictionary* data =  [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
-//        for(NSDictionary *t in data[@"hourly"]){
-//            HourlyModel* item = [[HourlyModel alloc] initWithDict:t];
-//            [self.hourlyArray addObject:item];
-//        }
-    callBack();
     
 }
 

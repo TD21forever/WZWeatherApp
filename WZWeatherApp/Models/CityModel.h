@@ -6,10 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CityModel : NSObject
+@interface CityModel : NSObject<NSCoding>
 
 
 
@@ -20,7 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString * cityEnglishName;
 @property (nonatomic,copy) NSString * cityCode;
 
-@property (nonatomic,strong) NSArray * cityArray;
+
+
+- (CityModel*)getCurCityWithCityName:(NSString*)cityName;
+
++ (NSArray*)getCityArray;
+
++ (CityModel*)getCurCityWithCityName:(NSString*)cityName;
+
+
 
 @end
 

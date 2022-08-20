@@ -6,8 +6,8 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "LocationTableVC.h"
+#import "WZTabBarController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -18,12 +18,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ViewController* rootVC = [[ViewController alloc]init];
-    UINavigationController * navVC = [[UINavigationController alloc]initWithRootViewController:rootVC];
+    
+    WZTabBarController* tabbar = [WZTabBarController new];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.window.rootViewController = navVC;
+    self.window.rootViewController = tabbar;
+    
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"zh-hans",nil]  forKey:@"AppleLanguages"];
+
     return YES;
 }
 

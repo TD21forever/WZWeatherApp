@@ -8,9 +8,12 @@
 #import "WZHourlyCollectionViewCell.h"
 #import "Masonry.h"
 #import "UtilsManager.h"
+#import "WZConstant.h"
 
-#define TEXT_FONT 18
+#define TEXT_FONT [UIFont boldSystemFontOfSize:18]
 #define IMAGE_SIZE CGSizeMake(24, 24)
+
+
 @interface WZHourlyCollectionViewCell()
 
 @property (nonatomic,strong) UILabel* hour;
@@ -24,17 +27,19 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
-        [self createUI];
+        [self setupUI];
+        
     }
     return self;
 }
 
-- (void)createUI{
+- (void)setupUI{
 
+    // 时间
     _hour = [UILabel new];
     _hour.text = @"";
-    _hour.textColor = [UIColor whiteColor];
-    _hour.font = [UIFont systemFontOfSize:TEXT_FONT];
+    _hour.textColor = TEXT_COLOR;
+    _hour.font = TEXT_FONT;
     
     [self.contentView addSubview:_hour];
     
@@ -43,6 +48,7 @@
         make.top.offset(8);
     }];
     
+    // 图片
     _image = [[UIImageView alloc]initWithImage:[UIImage systemImageNamed:@"cloud.moon"]];
     [_image sizeToFit];
     
@@ -54,11 +60,11 @@
         make.top.equalTo(_hour.mas_bottom).offset(8);
     }];
     
-    
+    // 温度
     _temprature = [UILabel new];
     _temprature.text = @"现在";
-    _temprature.textColor = [UIColor whiteColor];
-    _temprature.font = [UIFont systemFontOfSize:TEXT_FONT];
+    _temprature.textColor = TEXT_COLOR;
+    _temprature.font = TEXT_FONT;
     
     [self.contentView addSubview:_temprature];
     
@@ -73,10 +79,7 @@
 
 - (void)setHourlyModel:(HourlyModel *)hourlyModel{
     _hourlyModel = hourlyModel;
-    
-//    _hour.text = [NSString stringWithFormat:@"%@",_hourlyModel.date];
-    
-    _hour.text = [NSString stringWithFormat:@"现在"];
+    _hour.text = [NSString stringWithFormat:@"%@时", [hourlyModel.date substringWithRange:NSMakeRange(hourlyModel.date.length-11, 2)]];
     
     NSURL *url = [UtilsManager.shared imageUrlFromWeatherCode:_hourlyModel.icon];
     [UtilsManager.shared genImageView:_image withUrl:url];

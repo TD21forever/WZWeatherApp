@@ -32,11 +32,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NowModel : NSObject
+@interface NowModel : NSObject<NSCoding>
 
 @property (nonatomic,copy) NSString * temp;
 @property (nonatomic,copy) NSString * icon;
 @property (nonatomic,copy) NSString * text;
+@property (nonatomic,copy) NSString * pressure; // 气压
+@property (nonatomic,copy) NSString * windDir; // 风向
+@property (nonatomic,copy) NSString * windSpeed; // 风速
+@property (nonatomic,copy) NSString * windScale; // 风力
 
 - (instancetype)initWithDict:(NSDictionary*) data;
 

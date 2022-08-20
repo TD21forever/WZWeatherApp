@@ -58,7 +58,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DailyModel : NSObject
+@interface DailyModel : NSObject <NSCoding>
 
 @property (nonatomic,copy) NSString * tempMax;
 @property (nonatomic,copy) NSString * tempMin;
@@ -70,6 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithDict:(NSDictionary*) data;
 
+- (void)encodeWithCoder:(NSCoder *)coder;
+- (instancetype)initWithCoder:(NSCoder *)coder;
 @end
 
 NS_ASSUME_NONNULL_END

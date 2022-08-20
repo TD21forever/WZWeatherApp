@@ -17,6 +17,8 @@
  
  */
 
+typedef void (^MyBlock)(NSMutableArray*_Nonnull dailyArray);
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong,nonatomic) NSMutableArray<DailyModel*>* dailyArray;
 
-- (void)fetchData:(CityModel*)city callback:(void (^)(void))callBack;
+- (void)fetchData:(CityModel*)city callback:(MyBlock) callBack;
 
 @end
 

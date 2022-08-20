@@ -15,6 +15,7 @@
 		F52304352892D6AA007D707B /* weatherCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52304332892D6AA007D707B /* weatherCode.plist */; };
 		F52304362892D6AA007D707B /* cityCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52304342892D6AA007D707B /* cityCode.plist */; };
 		F523043A2893078A007D707B /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F52304392893078A007D707B /* LocationManager.m */; };
+		F539A6B528AFD0EF0016854C /* WZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F539A6B428AFD0EF0016854C /* WZTabBarController.m */; };
 		F542D0562893E08A0097792C /* WZHourlyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D0552893E08A0097792C /* WZHourlyCollectionViewCell.m */; };
 		F542D05A2893F95A0097792C /* WZHourlyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D0592893F95A0097792C /* WZHourlyTableViewCell.m */; };
 		F542D05D2893F9E80097792C /* HourlyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D05C2893F9E80097792C /* HourlyModel.m */; };
@@ -23,7 +24,7 @@
 		F542D066289441560097792C /* NowDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F542D065289441560097792C /* NowDataService.m */; };
 		F542D0682894D4170097792C /* hourly.json in Resources */ = {isa = PBXBuildFile; fileRef = F542D0672894D4170097792C /* hourly.json */; };
 		F559EE412890EB6F0068208A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE402890EB6F0068208A /* AppDelegate.m */; };
-		F559EE472890EB6F0068208A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE462890EB6F0068208A /* ViewController.m */; };
+		F559EE472890EB6F0068208A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE462890EB6F0068208A /* HomeViewController.m */; };
 		F559EE4C2890EB700068208A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F559EE4B2890EB700068208A /* Assets.xcassets */; };
 		F559EE4F2890EB700068208A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F559EE4D2890EB700068208A /* LaunchScreen.storyboard */; };
 		F559EE522890EB700068208A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F559EE512890EB700068208A /* main.m */; };
@@ -31,6 +32,22 @@
 		F5767F7B2897102A00C6B7CD /* LocationTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F5767F7A2897102A00C6B7CD /* LocationTableVC.m */; };
 		F5767F7E2897132300C6B7CD /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5767F7D2897132300C6B7CD /* CityModel.m */; };
 		F5767F812898698100C6B7CD /* NSString+WZ.m in Sources */ = {isa = PBXBuildFile; fileRef = F5767F802898698100C6B7CD /* NSString+WZ.m */; };
+		F596EA802899E4440091480C /* UIImage+WZ.m in Sources */ = {isa = PBXBuildFile; fileRef = F596EA7F2899E4440091480C /* UIImage+WZ.m */; };
+		F596EA842899E9750091480C /* WZBackgroundVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F596EA832899E9750091480C /* WZBackgroundVideoView.m */; };
+		F596EA862899F2060091480C /* default_night.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F596EA852899EA5A0091480C /* default_night.mp4 */; };
+		F596EA882899F21A0091480C /* cloudy_day.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F596EA872899F21A0091480C /* cloudy_day.mp4 */; };
+		F596EA8F289A02250091480C /* cloudy_night.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F596EA89289A02250091480C /* cloudy_night.mp4 */; };
+		F596EA90289A02250091480C /* rain_day.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F596EA8A289A02250091480C /* rain_day.mp4 */; };
+		F596EA91289A02250091480C /* windy_day.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F596EA8B289A02250091480C /* windy_day.mp4 */; };
+		F596EA92289A02250091480C /* windy_night.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F596EA8C289A02250091480C /* windy_night.mp4 */; };
+		F596EA94289A02250091480C /* rain_night.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F596EA8E289A02250091480C /* rain_night.mp4 */; };
+		F596EA98289A02AD0091480C /* default_day.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F596EA97289A02AD0091480C /* default_day.mp4 */; };
+		F596EA9B289A86670091480C /* LifeStyleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F596EA9A289A86670091480C /* LifeStyleModel.m */; };
+		F596EA9E289A87520091480C /* LifeStyleDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F596EA9D289A87520091480C /* LifeStyleDataService.m */; };
+		F596EAA1289A89880091480C /* LifeStyleTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F596EAA0289A89880091480C /* LifeStyleTableVC.m */; };
+		F596EAA4289A8DEA0091480C /* LifeStyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F596EAA3289A8DEA0091480C /* LifeStyleTableViewCell.m */; };
+		F5CCBD9F28B0BAF60044AA8B /* partly_cloud_day.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F5CCBD9D28B0BAF50044AA8B /* partly_cloud_day.mp4 */; };
+		F5CCBDA028B0BAF60044AA8B /* partly_cloud_night.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F5CCBD9E28B0BAF60044AA8B /* partly_cloud_night.mp4 */; };
 		F5E2FED62891908B008D0910 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E2FED52891908B008D0910 /* HomeView.m */; };
 		F5F1EABB289313B50016B191 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1EABA289313B50016B191 /* NetworkManager.m */; };
 		F5F1EAC028931EB80016B191 /* DailyDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1EABF28931EB80016B191 /* DailyDataService.m */; };
@@ -53,6 +70,8 @@
 		F52304342892D6AA007D707B /* cityCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityCode.plist; sourceTree = "<group>"; };
 		F52304382893078A007D707B /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		F52304392893078A007D707B /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		F539A6B328AFD0EF0016854C /* WZTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZTabBarController.h; sourceTree = "<group>"; };
+		F539A6B428AFD0EF0016854C /* WZTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZTabBarController.m; sourceTree = "<group>"; };
 		F542D0542893E08A0097792C /* WZHourlyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZHourlyCollectionViewCell.h; sourceTree = "<group>"; };
 		F542D0552893E08A0097792C /* WZHourlyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZHourlyCollectionViewCell.m; sourceTree = "<group>"; };
 		F542D0582893F95A0097792C /* WZHourlyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZHourlyTableViewCell.h; sourceTree = "<group>"; };
@@ -69,8 +88,8 @@
 		F559EE3C2890EB6F0068208A /* WZWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F559EE3F2890EB6F0068208A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F559EE402890EB6F0068208A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F559EE452890EB6F0068208A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F559EE462890EB6F0068208A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F559EE452890EB6F0068208A /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		F559EE462890EB6F0068208A /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F559EE4B2890EB700068208A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F559EE4E2890EB700068208A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F559EE502890EB700068208A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +102,28 @@
 		F5767F7D2897132300C6B7CD /* CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
 		F5767F7F2898698100C6B7CD /* NSString+WZ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WZ.h"; sourceTree = "<group>"; };
 		F5767F802898698100C6B7CD /* NSString+WZ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WZ.m"; sourceTree = "<group>"; };
+		F596EA7E2899E4440091480C /* UIImage+WZ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+WZ.h"; sourceTree = "<group>"; };
+		F596EA7F2899E4440091480C /* UIImage+WZ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WZ.m"; sourceTree = "<group>"; };
+		F596EA822899E9750091480C /* WZBackgroundVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZBackgroundVideoView.h; sourceTree = "<group>"; };
+		F596EA832899E9750091480C /* WZBackgroundVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZBackgroundVideoView.m; sourceTree = "<group>"; };
+		F596EA852899EA5A0091480C /* default_night.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = default_night.mp4; sourceTree = "<group>"; };
+		F596EA872899F21A0091480C /* cloudy_day.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cloudy_day.mp4; sourceTree = "<group>"; };
+		F596EA89289A02250091480C /* cloudy_night.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cloudy_night.mp4; sourceTree = "<group>"; };
+		F596EA8A289A02250091480C /* rain_day.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rain_day.mp4; sourceTree = "<group>"; };
+		F596EA8B289A02250091480C /* windy_day.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = windy_day.mp4; sourceTree = "<group>"; };
+		F596EA8C289A02250091480C /* windy_night.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = windy_night.mp4; sourceTree = "<group>"; };
+		F596EA8E289A02250091480C /* rain_night.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rain_night.mp4; sourceTree = "<group>"; };
+		F596EA97289A02AD0091480C /* default_day.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = default_day.mp4; sourceTree = "<group>"; };
+		F596EA99289A86670091480C /* LifeStyleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LifeStyleModel.h; sourceTree = "<group>"; };
+		F596EA9A289A86670091480C /* LifeStyleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LifeStyleModel.m; sourceTree = "<group>"; };
+		F596EA9C289A87520091480C /* LifeStyleDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LifeStyleDataService.h; sourceTree = "<group>"; };
+		F596EA9D289A87520091480C /* LifeStyleDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LifeStyleDataService.m; sourceTree = "<group>"; };
+		F596EA9F289A89880091480C /* LifeStyleTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LifeStyleTableVC.h; sourceTree = "<group>"; };
+		F596EAA0289A89880091480C /* LifeStyleTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LifeStyleTableVC.m; sourceTree = "<group>"; };
+		F596EAA2289A8DEA0091480C /* LifeStyleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LifeStyleTableViewCell.h; sourceTree = "<group>"; };
+		F596EAA3289A8DEA0091480C /* LifeStyleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LifeStyleTableViewCell.m; sourceTree = "<group>"; };
+		F5CCBD9D28B0BAF50044AA8B /* partly_cloud_day.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = partly_cloud_day.mp4; sourceTree = "<group>"; };
+		F5CCBD9E28B0BAF60044AA8B /* partly_cloud_night.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = partly_cloud_night.mp4; sourceTree = "<group>"; };
 		F5E2FED42891908B008D0910 /* HomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
 		F5E2FED52891908B008D0910 /* HomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
 		F5F1EAB9289313B50016B191 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -133,6 +174,8 @@
 				F542D062289440250097792C /* NowModel.m */,
 				F5767F7C2897132300C6B7CD /* CityModel.h */,
 				F5767F7D2897132300C6B7CD /* CityModel.m */,
+				F596EA99289A86670091480C /* LifeStyleModel.h */,
+				F596EA9A289A86670091480C /* LifeStyleModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +183,10 @@
 		F52304262892B9F0007D707B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F5E2FED42891908B008D0910 /* HomeView.h */,
+				F5E2FED52891908B008D0910 /* HomeView.m */,
+				F58EB2AC28A323F900F42147 /* LifeStyleCells */,
+				F596EA812899E9170091480C /* BackgroundViews */,
 				F52304282892BBF7007D707B /* HeaderViews */,
 				F52304272892B9F8007D707B /* DailyForcastCells */,
 				F542D0572893F8C50097792C /* HourlyForcastCells */,
@@ -172,6 +219,8 @@
 				F52304302892D691007D707B /* NSURL+WZ.m */,
 				F5767F7F2898698100C6B7CD /* NSString+WZ.h */,
 				F5767F802898698100C6B7CD /* NSString+WZ.m */,
+				F596EA7E2899E4440091480C /* UIImage+WZ.h */,
+				F596EA7F2899E4440091480C /* UIImage+WZ.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -187,6 +236,54 @@
 				F5F1EAC228934AAF0016B191 /* UtilsManager.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		F539A6AF28AFC4B80016854C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F559EE4B2890EB700068208A /* Assets.xcassets */,
+				F559EE4D2890EB700068208A /* LaunchScreen.storyboard */,
+				F559EE512890EB700068208A /* main.m */,
+				F52304342892D6AA007D707B /* cityCode.plist */,
+				F52304332892D6AA007D707B /* weatherCode.plist */,
+				F539A6B028AFC4CF0016854C /* Videos */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		F539A6B028AFC4CF0016854C /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				F596EA97289A02AD0091480C /* default_day.mp4 */,
+				F596EA89289A02250091480C /* cloudy_night.mp4 */,
+				F596EA8A289A02250091480C /* rain_day.mp4 */,
+				F596EA8E289A02250091480C /* rain_night.mp4 */,
+				F596EA8B289A02250091480C /* windy_day.mp4 */,
+				F596EA8C289A02250091480C /* windy_night.mp4 */,
+				F596EA852899EA5A0091480C /* default_night.mp4 */,
+				F5CCBD9D28B0BAF50044AA8B /* partly_cloud_day.mp4 */,
+				F5CCBD9E28B0BAF60044AA8B /* partly_cloud_night.mp4 */,
+				F596EA872899F21A0091480C /* cloudy_day.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		F539A6B128AFC4F30016854C /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				F5767F792897102A00C6B7CD /* LocationTableVC.h */,
+				F5767F7A2897102A00C6B7CD /* LocationTableVC.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		F539A6B228AFD0B70016854C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F539A6B328AFD0EF0016854C /* WZTabBarController.h */,
+				F539A6B428AFD0EF0016854C /* WZTabBarController.m */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		F542D0572893F8C50097792C /* HourlyForcastCells */ = {
@@ -221,6 +318,7 @@
 		F559EE3E2890EB6F0068208A /* WZWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F539A6AF28AFC4B80016854C /* Support Files */,
 				F559EE3F2890EB6F0068208A /* AppDelegate.h */,
 				F559EE402890EB6F0068208A /* AppDelegate.m */,
 				F523043728930617007D707B /* Manager */,
@@ -229,27 +327,56 @@
 				F52304322892D698007D707B /* Category */,
 				F5F1EABC28931E480016B191 /* Controller */,
 				F52304262892B9F0007D707B /* Views */,
-				F5E2FED42891908B008D0910 /* HomeView.h */,
-				F5E2FED52891908B008D0910 /* HomeView.m */,
-				F5767F792897102A00C6B7CD /* LocationTableVC.h */,
-				F5767F7A2897102A00C6B7CD /* LocationTableVC.m */,
-				F52304342892D6AA007D707B /* cityCode.plist */,
-				F52304332892D6AA007D707B /* weatherCode.plist */,
 				F52304222892AE63007D707B /* WZConstant.h */,
 				F52304232892AE63007D707B /* WZConstant.m */,
-				F559EE4B2890EB700068208A /* Assets.xcassets */,
-				F559EE4D2890EB700068208A /* LaunchScreen.storyboard */,
 				F559EE502890EB700068208A /* Info.plist */,
-				F559EE512890EB700068208A /* main.m */,
 			);
 			path = WZWeatherApp;
+			sourceTree = "<group>";
+		};
+		F58EB2AA28A323D300F42147 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F559EE452890EB6F0068208A /* HomeViewController.h */,
+				F559EE462890EB6F0068208A /* HomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F58EB2AB28A323DB00F42147 /* Life */ = {
+			isa = PBXGroup;
+			children = (
+				F596EA9F289A89880091480C /* LifeStyleTableVC.h */,
+				F596EAA0289A89880091480C /* LifeStyleTableVC.m */,
+			);
+			path = Life;
+			sourceTree = "<group>";
+		};
+		F58EB2AC28A323F900F42147 /* LifeStyleCells */ = {
+			isa = PBXGroup;
+			children = (
+				F596EAA2289A8DEA0091480C /* LifeStyleTableViewCell.h */,
+				F596EAA3289A8DEA0091480C /* LifeStyleTableViewCell.m */,
+			);
+			path = LifeStyleCells;
+			sourceTree = "<group>";
+		};
+		F596EA812899E9170091480C /* BackgroundViews */ = {
+			isa = PBXGroup;
+			children = (
+				F596EA822899E9750091480C /* WZBackgroundVideoView.h */,
+				F596EA832899E9750091480C /* WZBackgroundVideoView.m */,
+			);
+			path = BackgroundViews;
 			sourceTree = "<group>";
 		};
 		F5F1EABC28931E480016B191 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F559EE452890EB6F0068208A /* ViewController.h */,
-				F559EE462890EB6F0068208A /* ViewController.m */,
+				F539A6B228AFD0B70016854C /* TabBar */,
+				F539A6B128AFC4F30016854C /* Location */,
+				F58EB2AB28A323DB00F42147 /* Life */,
+				F58EB2AA28A323D300F42147 /* Home */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +386,8 @@
 			children = (
 				F5F1EABE28931EB80016B191 /* DailyDataService.h */,
 				F5F1EABF28931EB80016B191 /* DailyDataService.m */,
+				F596EA9C289A87520091480C /* LifeStyleDataService.h */,
+				F596EA9D289A87520091480C /* LifeStyleDataService.m */,
 				F542D05E2893FB2D0097792C /* HourlyDataService.h */,
 				F542D05F2893FB2D0097792C /* HourlyDataService.m */,
 				F542D064289441560097792C /* NowDataService.h */,
@@ -279,6 +408,7 @@
 				F559EE382890EB6F0068208A /* Sources */,
 				F559EE392890EB6F0068208A /* Frameworks */,
 				F559EE3A2890EB6F0068208A /* Resources */,
+				C68C860068611227BC753414 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,11 +456,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F596EA98289A02AD0091480C /* default_day.mp4 in Resources */,
+				F596EA92289A02250091480C /* windy_night.mp4 in Resources */,
+				F596EA90289A02250091480C /* rain_day.mp4 in Resources */,
+				F5CCBD9F28B0BAF60044AA8B /* partly_cloud_day.mp4 in Resources */,
+				F596EA94289A02250091480C /* rain_night.mp4 in Resources */,
+				F596EA882899F21A0091480C /* cloudy_day.mp4 in Resources */,
+				F596EA862899F2060091480C /* default_night.mp4 in Resources */,
+				F5CCBDA028B0BAF60044AA8B /* partly_cloud_night.mp4 in Resources */,
 				F52304362892D6AA007D707B /* cityCode.plist in Resources */,
 				F542D0682894D4170097792C /* hourly.json in Resources */,
 				F52304352892D6AA007D707B /* weatherCode.plist in Resources */,
 				F559EE4F2890EB700068208A /* LaunchScreen.storyboard in Resources */,
 				F559EE4C2890EB700068208A /* Assets.xcassets in Resources */,
+				F596EA8F289A02250091480C /* cloudy_night.mp4 in Resources */,
+				F596EA91289A02250091480C /* windy_day.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +499,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C68C860068611227BC753414 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WZWeatherApp/Pods-WZWeatherApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WZWeatherApp/Pods-WZWeatherApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WZWeatherApp/Pods-WZWeatherApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -367,14 +524,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F523042B2892D2BF007D707B /* DailyModel.m in Sources */,
+				F596EA9B289A86670091480C /* LifeStyleModel.m in Sources */,
 				F52304312892D691007D707B /* NSURL+WZ.m in Sources */,
 				F523043A2893078A007D707B /* LocationManager.m in Sources */,
+				F596EA802899E4440091480C /* UIImage+WZ.m in Sources */,
 				F5F1EABB289313B50016B191 /* NetworkManager.m in Sources */,
 				F5767F7E2897132300C6B7CD /* CityModel.m in Sources */,
-				F559EE472890EB6F0068208A /* ViewController.m in Sources */,
+				F559EE472890EB6F0068208A /* HomeViewController.m in Sources */,
 				F542D05A2893F95A0097792C /* WZHourlyTableViewCell.m in Sources */,
 				F52304242892AE63007D707B /* WZConstant.m in Sources */,
 				F5F1EAC028931EB80016B191 /* DailyDataService.m in Sources */,
+				F539A6B528AFD0EF0016854C /* WZTabBarController.m in Sources */,
+				F596EA9E289A87520091480C /* LifeStyleDataService.m in Sources */,
+				F596EA842899E9750091480C /* WZBackgroundVideoView.m in Sources */,
 				F542D0602893FB2D0097792C /* HourlyDataService.m in Sources */,
 				F542D066289441560097792C /* NowDataService.m in Sources */,
 				F559EE412890EB6F0068208A /* AppDelegate.m in Sources */,
@@ -383,7 +545,9 @@
 				F523041E2891DB37007D707B /* WZDailyTableViewCell.m in Sources */,
 				F5767F7B2897102A00C6B7CD /* LocationTableVC.m in Sources */,
 				F542D05D2893F9E80097792C /* HourlyModel.m in Sources */,
+				F596EAA1289A89880091480C /* LifeStyleTableVC.m in Sources */,
 				F542D063289440250097792C /* NowModel.m in Sources */,
+				F596EAA4289A8DEA0091480C /* LifeStyleTableViewCell.m in Sources */,
 				F5767F812898698100C6B7CD /* NSString+WZ.m in Sources */,
 				F542D0562893E08A0097792C /* WZHourlyCollectionViewCell.m in Sources */,
 				F559EE5C2890F8CC0068208A /* WZHeaderTextView.m in Sources */,
@@ -455,7 +619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -507,7 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -530,6 +694,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,6 +722,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

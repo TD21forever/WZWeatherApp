@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+#import "AVKit/AVKit.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UtilsManager : NSObject
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)genImageView:(UIImageView*)imageView withUrl:(NSURL*)url;
 
+- (AVPlayer*)getAVPlayerWithWeather:(NSString*)weather dayOrNight:(NSString*)dayOrNight;
 
 @end
 

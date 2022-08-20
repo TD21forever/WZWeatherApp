@@ -46,7 +46,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HourlyModel : NSObject
+@interface HourlyModel : NSObject<NSCoding>
 
 @property (nonatomic,copy) NSString * date;
 @property (nonatomic,copy) NSString * temp;

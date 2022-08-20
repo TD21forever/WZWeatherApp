@@ -9,6 +9,8 @@
 #import "WZConstant.h"
 #import "NetworkManager.h"
 #import "NSString+WZ.h"
+#import "NowModel.h"
+
 
 @implementation NowDataService
 
@@ -19,7 +21,7 @@
     return self;
 }
 
-- (void)fetchData:(CityModel*)city callback:(void (^)(void))callBack{
+- (void)fetchData:(CityModel*)city callback:(void (^)(NowModel*))callBack{
 
     NSDictionary * params = @{
         @"location" : [NSString getCityCode:city.cityCode],
@@ -28,11 +30,9 @@
     
     [[NetworkManager shared] simpleGet:NOW_API parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
-        __typeof__(self) __weak wself = self;
-
         NSDictionary* data = responseObject[@"now"];
-        wself.nowModel = [[NowModel alloc] initWithDict:data];
-        callBack();
+        NowModel *nowModel = [[NowModel alloc]initWithDict:data];
+        callBack(nowModel);
 
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"======%@",error);

@@ -36,5 +36,25 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder{
+    [coder encodeObject:self.tempMax forKey:@"tempMax"];
+    [coder encodeObject:self.tempMin forKey:@"tempMin"];
+    [coder encodeObject:self.iconDay forKey:@"iconDay"];
+    [coder encodeObject:self.textDay forKey:@"textDay"];
+    [coder encodeObject:self.iconNight forKey:@"iconNight"];
+    [coder encodeObject:self.textNight forKey:@"textNight"];
+    [coder encodeObject:self.date forKey:@"date"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder{
+    self.tempMax = [coder decodeObjectForKey:@"tempMax"];
+    self.tempMin = [coder decodeObjectForKey:@"tempMin"];
+    self.iconDay = [coder decodeObjectForKey:@"iconDay"];
+    self.textDay = [coder decodeObjectForKey:@"textDay"];
+    self.iconNight = [coder decodeObjectForKey:@"iconNight"];
+    self.textNight = [coder decodeObjectForKey:@"textNight"];
+    self.date = [coder decodeObjectForKey:@"date"];
+    return self;
+}
 
 @end

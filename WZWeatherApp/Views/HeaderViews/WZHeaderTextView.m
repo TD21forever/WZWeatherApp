@@ -7,97 +7,128 @@
 
 #import "WZHeaderTextView.h"
 #import "Masonry.h"
-
+#import "WZConstant.h"
 
 @implementation WZHeaderTextView {
     UILabel * _location;
     UILabel * _temperature;
     UILabel * _weather;
     UILabel * _highLow;
-    UIView * _container;
+    UILabel * _wind;
+    UIButton * _locationButton;
+
 }
 
-- (void)setupUI{
-    // location
-    _location = [UILabel new];
-    _location.text = @"";
-    _location.textColor = UIColor.whiteColor;
-    _location.font = [UIFont systemFontOfSize:40];
-    
-    [_container addSubview:_location];
-    
-    // temperature
-    _temperature = [UILabel new];
-    _temperature.text = @"";
-    _temperature.textColor = [UIColor whiteColor];
-    _temperature.font = [UIFont systemFontOfSize:80];
-    
-    [_container addSubview:_temperature];
-    
-    _weather = [UILabel new];
-    _weather.text = @"";
-    _weather.textColor = [UIColor whiteColor];
-    _weather.font = [UIFont systemFontOfSize:30];
-
-    
-    [_container addSubview:_weather];
-    
-    _highLow = [UILabel new];
-    _highLow.text = @"";
-    _highLow.textColor = [UIColor whiteColor];
-    _highLow.font = [UIFont systemFontOfSize:30];
-
-    [_container addSubview:_highLow];
-}
-
-- (void)addConstrains{
-    
-    UIEdgeInsets paddings = UIEdgeInsetsMake(30, 30, 30, 30);
-    [_location mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.centerX.equalTo(_container.mas_centerX);
-        make.top.equalTo(_container.mas_top).offset(paddings.top);
-        
-    }];
-    [_temperature mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.centerX.equalTo(_location.mas_centerX);
-        make.top.equalTo(_location.mas_bottom).offset(paddings.top);
-        
-    }];
-    [_weather mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.centerX.equalTo(_container.mas_centerX);
-        make.top.equalTo(_temperature.mas_bottom).offset(paddings.top);
-        
-    }];
-    [_highLow mas_makeConstraints:^(MASConstraintMaker *make) {
-
-        make.centerX.equalTo(_container.mas_centerX);
-        make.top.equalTo(_weather.mas_bottom).offset(paddings.top);
-
-    }];
-    
-}
-
-- (instancetype)init{
-    if (self = [super init]){
-        _container = self;
+- (instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]){
         [self setupUI];
         [self addConstrains];
     }
     return self;
 }
 
+#pragma mark - 设置UI
+- (void)setupUI{
+    // location
+//    _location = [UILabel new];
+//    _location.text = @"";
+//    _location.textColor = UIColor.whiteColor;
+//    _location.font = TITLE_FONT;
+//
+//    [self addSubview:_location];
+    
+    // temperature
+    _temperature = [UILabel new];
+    _temperature.text = @"";
+    _temperature.textColor = TEXT_COLOR;
+    _temperature.font = LARGE_TITLE_FONT;
+    [_temperature setTextAlignment:NSTextAlignmentCenter];
+    
+    [self addSubview:_temperature];
+    
+    _weather = [UILabel new];
+    _weather.text = @"";
+    _weather.textColor = TEXT_COLOR;
+    _weather.font = TABBAR_TEXT_FONT;
+
+    
+    [self addSubview:_weather];
+    
+    _highLow = [UILabel new];
+    _highLow.text = @"";
+    _highLow.textColor = TEXT_COLOR;
+    _highLow.font = TABBAR_TEXT_FONT;
+
+    [self addSubview:_highLow];
+    
+    _wind = [UILabel new];
+    _wind.text = @"";
+    _wind.textColor = TEXT_COLOR;
+    _wind.font = TABBAR_TEXT_FONT;
+    [self addSubview:_wind];
+    
+//    _locationButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImageSymbolConfiguration* config = [UIImageSymbolConfiguration configurationWithFont:[UIFont systemFontOfSize:22]];
+//    [_locationButton setImage:[UIImage systemImageNamed:@"location" withConfiguration:config] forState:UIControlStateNormal];
+//    [self addSubview:_locationButton];
+}
+
+- (void)addConstrains{
+    
+    UIEdgeInsets paddings = UIEdgeInsetsMake(10, 10, 10, 10);
+//    [_location mas_makeConstraints:^(MASConstraintMaker *make) {
+//
+//        make.centerX.equalTo(self);
+//        make.top.equalTo(self).offset(10);
+//
+//    }];
+    [_temperature mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.centerX.equalTo(self).offset(5);
+//        make.edges.equalTo(self).insets(paddings);
+        make.top.equalTo(self).offset(paddings.top+20);
+        
+        
+    }];
+    [_weather mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.centerX.equalTo(self);
+        make.top.equalTo(_temperature.mas_bottom).offset(paddings.top);
+        
+    }];
+    [_highLow mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.centerX.equalTo(self);
+        make.top.equalTo(_weather.mas_bottom).offset(paddings.top);
+
+    }];
+    [_wind mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_highLow.mas_bottom).offset(20);
+        make.centerX.equalTo(self);
+            
+    }];
+    
+//    [_locationButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.right.equalTo(self).offset(-20);
+//            make.top.equalTo(self).offset(10);
+//    }];
+}
+
+
+
+#pragma mark - Setter
+
+
 
 - (void)setNowModel:(NowModel *)nowModel{
     
     _nowModel = nowModel;
-    
     _temperature.text = [NSString stringWithFormat:@"%@°",nowModel.temp];
-    _weather.text = [NSString stringWithFormat:@"%@°",nowModel.text];
+    _weather.text = [NSString stringWithFormat:@"%@",nowModel.text];
+    _wind.text = [NSString stringWithFormat:@"%@%@级,风速%@公里/小时",nowModel.windDir,nowModel.windScale,nowModel.windSpeed];
     
 }
+
 
 - (void)setDailyModel:(DailyModel *)dailyModel{
     _dailyModel = dailyModel;
@@ -105,8 +136,8 @@
 }
 
 - (void)setCurCity:(CityModel *)curCity{
-    NSLog(@"Set cur city");
     _curCity = curCity;
     _location.text = curCity.cityChineseName;
 }
+
 @end

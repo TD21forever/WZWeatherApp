@@ -9,10 +9,11 @@
 #import "Masonry.h"
 #import "SDWebImage.h"
 #import "UtilsManager.h"
+#import "NSString+WZ.h"
+#import "WZConstant.h"
 
-
-#define FONT_SIZE 18
-#define IMAGE_SIZE CGSizeMake(24, 24)
+#define TEXT_FONT [UIFont boldSystemFontOfSize:18]
+#define IMAGE_SIZE CGSizeMake(34, 34)
 
 @implementation WZDailyTableViewCell{
     UILabel * _dayLabel;
@@ -25,6 +26,14 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
 
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
+        
+//        UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterial];
+//        UIVisualEffectView * blurEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
+//        blurEffectView.frame = self.contentView.bounds;
+//        blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//        [self.contentView addSubview:blurEffectView];
+        
         [self createUI];
     }
     return self;
@@ -36,34 +45,33 @@
     // 日期
     _dayLabel = [UILabel new];
     _dayLabel.text = self.dailyModel.textDay;
-    _dayLabel.font = [UIFont systemFontOfSize:FONT_SIZE];
-    _dayLabel.textColor = [UIColor whiteColor];
+    _dayLabel.font = TEXT_FONT;
+    _dayLabel.textColor = TEXT_COLOR;
 
     [self.contentView addSubview:_dayLabel];
     
     [_dayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.edges.insets(padding);
         make.centerY.equalTo(self.mas_centerY);
-        make.left.equalTo(self.mas_left).offset(15);
+        make.left.equalTo(self.mas_left).offset(25);
     }];
     
     // 图片
     _image = [[UIImageView alloc]initWithImage:[UIImage systemImageNamed:@"sun.max"]];
     [_image sizeToFit];
-    [_image setTintColor:[UIColor greenColor]];
     [self.contentView addSubview:_image];
     
     [_image mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.mas_centerY);
-        make.left.equalTo(_dayLabel.mas_right).offset(40);
+        make.centerX.equalTo(self.mas_centerX);
         make.size.mas_equalTo(IMAGE_SIZE);
     }];
     
 //    // 最低气温
     _lowTmp = [UILabel new];
     _lowTmp.text = self.dailyModel.tempMin;
-    _lowTmp.font = [UIFont systemFontOfSize:FONT_SIZE];
-    _lowTmp.textColor = [UIColor whiteColor];
+    _lowTmp.font = TEXT_FONT;
+    _lowTmp.textColor = TEXT_COLOR;
 
     [self.contentView addSubview:_lowTmp];
 
@@ -72,8 +80,8 @@
 //    // 最高气温
     _highTmp = [UILabel new];
     _highTmp.text = self.dailyModel.tempMax;
-    _highTmp.font = [UIFont systemFontOfSize:FONT_SIZE];
-    _highTmp.textColor = [UIColor whiteColor];
+    _highTmp.font = TEXT_FONT;
+    _highTmp.textColor = TEXT_COLOR;
 
     [self.contentView addSubview:_highTmp];
 
@@ -93,8 +101,9 @@
 - (void)setDailyModel:(DailyModel *)dailyModel{
     _dailyModel = dailyModel;
     
-    _dayLabel.text = [NSString stringWithFormat: @"星期 %@",dailyModel.date];
+    _dayLabel.text = [NSString dateExchangeToWeek:dailyModel.date];
     
+     
     _lowTmp.text = [NSString stringWithFormat:@"%@°",dailyModel.tempMin];
     _highTmp.text = [NSString stringWithFormat:@"%@°",dailyModel.tempMax];
     
