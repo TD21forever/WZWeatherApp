@@ -124,6 +124,7 @@
 		F596EAA3289A8DEA0091480C /* LifeStyleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LifeStyleTableViewCell.m; sourceTree = "<group>"; };
 		F5CCBD9D28B0BAF50044AA8B /* partly_cloud_day.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = partly_cloud_day.mp4; sourceTree = "<group>"; };
 		F5CCBD9E28B0BAF60044AA8B /* partly_cloud_night.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = partly_cloud_night.mp4; sourceTree = "<group>"; };
+		F5CCBDA128B217FD0044AA8B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5E2FED42891908B008D0910 /* HomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
 		F5E2FED52891908B008D0910 /* HomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
 		F5F1EAB9289313B50016B191 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -302,6 +303,7 @@
 		F559EE332890EB6F0068208A = {
 			isa = PBXGroup;
 			children = (
+				F5CCBDA128B217FD0044AA8B /* README.md */,
 				F559EE3E2890EB6F0068208A /* WZWeatherApp */,
 				F559EE3D2890EB6F0068208A /* Products */,
 				A85E14EB4124A93F12BD1820 /* Pods */,
