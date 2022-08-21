@@ -45,28 +45,47 @@
 @property (nonatomic,strong) WZHourlyTableViewCell * hourlyCell;
 
 #pragma mark - Store
-@property (nonatomic,strong) CityModel* cityModel;
 @property (nonatomic,strong) CityModel* curCity;
 @property (nonatomic,strong) CityModel* locationCity;
 @property (nonatomic,strong) LocationTableVC* locationVC;
-@property (nonatomic,strong) NSMutableArray<DailyModel*>* dailyArray;
-@property (nonatomic,strong) NSMutableArray<HourlyModel*>* hourlyArray;
+@property (nonatomic,strong) NSString* currentLocation;
+
 @property (nonatomic,strong) NSMutableArray* tableViewData;
 @property (nonatomic,strong) NowModel* nowModel;
 @property (nonatomic,assign) Boolean isCleanMode;
+@property (nonatomic,strong) NSMutableArray<DailyModel*>* dailyArray;
+@property (nonatomic,strong) NSMutableArray<HourlyModel*>* hourlyArray;
 
-@property (nonatomic,strong) NSString* currentLocation;
 @property (nonatomic,strong) MJRefreshNormalHeader * mjHeader;
 
 #pragma mark - Cache
 @property (nonatomic,strong) YYCache* dataCache;
 
-@property (nonatomic,weak) id delegate;
 @end
 
 @implementation HomeViewController
 
 
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setupNavigationBarItems];
+    [self initServiceAndStores];
+    [self fetchDataWithCache:YES];
+    [self registerNotification];
+ 
+    [[LocationManager shared] setupCurLocation];
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+
+    self.tabBarController.tabBar.hidden = NO;
+
+}
 
 #pragma mark - Tabbar Controller
 - (LocationTableVC*)locationVC{
@@ -85,23 +104,18 @@
 
 #pragma mark - 初始化服务
 
-- (void)initService {
+- (void)initServiceAndStores {
     _daily = [DailyDataService new];
     _hourly = [HourlyDataService new];
     _now = [NowDataService new];
+    _dailyArray = [NSMutableArray new];
+    _hourlyArray = [NSMutableArray new];
+    self.isCleanMode = NO;
+    self.tabBarController.delegate = self;
+
 }
 
 #pragma mark - 初始化模型
-
-- (void)initStores {
- 
-    self.cityModel = [CityModel new];
-    self.dailyArray = [NSMutableArray new];
-    self.hourlyArray = [NSMutableArray new];
-    
-}
-
-
 
 - (CityModel*)curCity{
     if(!_curCity){
@@ -120,34 +134,13 @@
 
 
 
-- (YYCache*)dataCache{
-    if(!_dataCache){
-        _dataCache = [YYCache cacheWithName:@"weatherDataCache"];
-        _dataCache.memoryCache.shouldRemoveAllObjectsOnMemoryWarning = YES;
-    }
-    return _dataCache;
-}
-
-#pragma mark - MJRefresh
-
-- (MJRefreshNormalHeader*)mjHeader{
-    if (!_mjHeader){
-        WeakSelf
-        _mjHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [weakSelf fetchDataWithCache:NO];
-        }];
-
-    }
-    return _mjHeader;
-
-}
-
 #pragma mark - 初始化首页UI
 - (HomeView*)home{
     if(!_home){
         _home = [[HomeView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
         _home.delegate = self;
         _home.dataSource = self;
+        
         [_home registerClass: [WZDailyTableViewCell class] forCellReuseIdentifier: NSStringFromClass([WZDailyTableViewCell class])];
         
         [_home registerClass: [WZHourlyTableViewCell class] forCellReuseIdentifier: NSStringFromClass([WZHourlyTableViewCell class])];
@@ -160,37 +153,12 @@
     return _home;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-
-    self.tabBarController.tabBar.hidden = NO;
+#pragma mark - NotificationCenter
+- (void)registerNotification{
     
-    
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self initService];
-    [self initStores];
-    
-    [self fetchDataWithCache:YES];
-    
-    [self setupNavigationBarItems];
- 
-   
-    self.tabBarController.delegate = self;
-    self.isCleanMode = NO;
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:@"updateCityName" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDidUpdated:) name:@"updateLocation" object:nil];
-    
- 
-    [[LocationManager shared] setupCurLocation];
-    
-
-    
-    
 }
 
 - (void)locationDidUpdated:(NSNotification *)notify{
@@ -225,7 +193,7 @@
     }
 }
 
-
+# pragma mark - FetchData
 - (void)fetchDataWithCache:(Boolean)withCache{
     
     dispatch_group_t fetchDataTaskGroup = dispatch_group_create();
@@ -275,9 +243,6 @@
     
     dispatch_group_notify(fetchDataTaskGroup, dispatch_get_main_queue(), ^{
         WeakSelf
-        weakSelf.home.estimatedRowHeight = 0;
-        weakSelf.home.estimatedSectionHeaderHeight = 0;
-        weakSelf.home.estimatedSectionFooterHeight = 0;
         [weakSelf.home reloadData];
         weakSelf.home.headerView.curCity = self.curCity;
         weakSelf.navigationItem.title = self.curCity.cityChineseName;
@@ -369,6 +334,7 @@
     
 }
 
+#pragma mark - setter
 - (void)setDailyArray:(NSMutableArray<DailyModel *> *)dailyArray{
     if(dailyArray.count >= 1){
         self.home.headerView.dailyModel = dailyArray[0];
@@ -385,6 +351,30 @@
 - (void)setIsCleanMode:(Boolean)isCleanMode{
     _isCleanMode = isCleanMode;
     if (self.home.isCleanMode != isCleanMode) self.home.isCleanMode = isCleanMode;
+}
+
+#pragma mark - YYCache
+
+- (YYCache*)dataCache{
+    if(!_dataCache){
+        _dataCache = [YYCache cacheWithName:@"weatherDataCache"];
+        _dataCache.memoryCache.shouldRemoveAllObjectsOnMemoryWarning = YES;
+    }
+    return _dataCache;
+}
+
+#pragma mark - MJRefresh
+
+- (MJRefreshNormalHeader*)mjHeader{
+    if (!_mjHeader){
+        WeakSelf
+        _mjHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [weakSelf fetchDataWithCache:NO];
+        }];
+
+    }
+    return _mjHeader;
+
 }
 
 @end

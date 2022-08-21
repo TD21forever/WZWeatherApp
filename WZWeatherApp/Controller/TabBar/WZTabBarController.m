@@ -24,11 +24,10 @@
     itemAppearance.normal.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:12]};
     itemAppearance.selected.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:12]};
     
-    UITabBarAppearance* tabbarAppearance = [UITabBarAppearance new];
-    tabbarAppearance = self.tabBar.standardAppearance;
+    UITabBarAppearance* tabbarAppearance = self.tabBar.standardAppearance;
     tabbarAppearance.stackedLayoutAppearance = itemAppearance;
-
     self.tabBar.scrollEdgeAppearance = tabbarAppearance;
+    
     // homeView Nav
     HomeViewController* homeVC = [[HomeViewController alloc]init];
     UINavigationController * navVC = [[UINavigationController alloc]initWithRootViewController:homeVC];

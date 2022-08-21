@@ -12,11 +12,10 @@
 #import "WZHeaderTextView.h"
 
 @interface LocationTableVC ()<UISearchResultsUpdating>
-@property (nonatomic,strong) CityModel * cityModel;
+@property (nonatomic,strong) UISearchController* searchController;
 @property (nonatomic,strong) UILocalizedIndexedCollation* collation;
 @property (nonatomic,strong) NSMutableArray * sectionArray;
 @property (nonatomic,strong) NSMutableArray<CityModel*> * displayArray;
-@property (nonatomic,strong) UISearchController* searchController;
 @property (nonatomic,assign) BOOL isSearch;
 @end
 
@@ -31,16 +30,10 @@
     [self.tableView reloadData];
     self.title = @"城市选择";
     
-    
-    
-  
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = YES;
-    
-
-
 }
 
 - (UISearchController*)searchController{
@@ -58,7 +51,6 @@
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     if([searchController.searchBar.text length] == 0){
-
         _isSearch = NO;
     } else{
         _isSearch = YES;
@@ -69,22 +61,23 @@
     [self.tableView reloadData];
 }
 
+// 城市的筛选
 - (void)filterArrayForSearchText:(NSString*)text{
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.cityChineseName contains [cd] %@",self.searchController.searchBar.text];
     _displayArray = [[NSMutableArray alloc]initWithArray:[[CityModel getCityArray] filteredArrayUsingPredicate:predicate]];
 }
 
+// 按照A-Z组织数据
 - (void)fetchSectionData{
     if(!_collation){
         _collation = [UILocalizedIndexedCollation currentCollation];
     }
-    if(!_cityModel){
-        _cityModel = [CityModel new];
-    }
     if(!_displayArray){
         _displayArray = [[CityModel getCityArray] mutableCopy];
     }
+    //Provides the list of section titles used to group results (e.g. A-Z,# in US/English)
     NSArray * titles = _collation.sectionTitles;
+    // secitonArray 二维数组
     NSMutableArray * sectionArray = [NSMutableArray arrayWithCapacity:titles.count];
     for(int i = 0;i < titles.count; i++){
         NSMutableArray * subArr = [NSMutableArray array];
@@ -95,6 +88,7 @@
         NSMutableArray * subArray = sectionArray[section];
         [subArray addObject:city];
     }
+    
     for(NSMutableArray *arr in sectionArray){
         NSArray *sortArr = [_collation sortedArrayFromArray:arr collationStringSelector:@selector(cityChineseName)];
         [arr removeAllObjects];
@@ -106,26 +100,20 @@
 
 - (void)setupTableView{
     //定义tableview右侧section的外观
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    
     //文字颜色
     self.tableView.sectionIndexColor = [UIColor blackColor];
     //背景颜色
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
-    //触摸section区域时候的背景颜色 _tableview.sectionIndexTrackingBackgroundColor = [UIColor greenColor];
     self.tableView.sectionIndexMinimumDisplayRowCount = 13;
     [self.tableView setSectionIndexBackgroundColor:[UIColor clearColor]];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
         
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     self.navigationItem.searchController =  self.searchController;
-    
-    
-    UILabel * label = [UILabel new];
-    WZHeaderTextView* header = [WZHeaderTextView new];
-    label.text = @"hello";
-    self.tableView.tableHeaderView = header;
     
 }
 
@@ -170,23 +158,19 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    CityModel * city;
     if(!_isSearch){
-        CityModel * city = self.sectionArray[indexPath.section][indexPath.row];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateCityName" object:city];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        city = self.sectionArray[indexPath.section][indexPath.row];
     } else {
-     
-        CityModel * city = self.displayArray[indexPath.row];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateCityName" object:city];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        city = self.displayArray[indexPath.row];
     }
-  
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateCityName" object:city];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
     NSMutableArray* sections = [_collation.sectionTitles mutableCopy];
-    //往索引数组的开始处添加一个放大镜🔍 放大镜是系统定义好的一个常量字符串表示UITableViewIndexSearch 当然除了放大镜外也可以添加其他文字
-//    [sections insertObject:UITableViewIndexSearch  atIndex:0];
     if(!_isSearch)
         return sections;
     return nil;

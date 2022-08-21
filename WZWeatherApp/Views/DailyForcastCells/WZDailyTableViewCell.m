@@ -12,7 +12,7 @@
 #import "NSString+WZ.h"
 #import "WZConstant.h"
 
-#define TEXT_FONT [UIFont boldSystemFontOfSize:18]
+#define TABLE_TEXT_FONT [UIFont boldSystemFontOfSize:18]
 #define IMAGE_SIZE CGSizeMake(34, 34)
 
 @implementation WZDailyTableViewCell{
@@ -26,13 +26,6 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
 
-        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
-        
-//        UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterial];
-//        UIVisualEffectView * blurEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
-//        blurEffectView.frame = self.contentView.bounds;
-//        blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//        [self.contentView addSubview:blurEffectView];
         
         [self createUI];
     }
@@ -41,11 +34,13 @@
 
 - (void)createUI{
     
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
+
     
     // 日期
     _dayLabel = [UILabel new];
     _dayLabel.text = self.dailyModel.textDay;
-    _dayLabel.font = TEXT_FONT;
+    _dayLabel.font = TABLE_TEXT_FONT;
     _dayLabel.textColor = TEXT_COLOR;
 
     [self.contentView addSubview:_dayLabel];
@@ -70,17 +65,16 @@
 //    // 最低气温
     _lowTmp = [UILabel new];
     _lowTmp.text = self.dailyModel.tempMin;
-    _lowTmp.font = TEXT_FONT;
+    _lowTmp.font = TABLE_TEXT_FONT;
     _lowTmp.textColor = TEXT_COLOR;
 
     [self.contentView addSubview:_lowTmp];
 
   
-//
 //    // 最高气温
     _highTmp = [UILabel new];
     _highTmp.text = self.dailyModel.tempMax;
-    _highTmp.font = TEXT_FONT;
+    _highTmp.font = TABLE_TEXT_FONT;
     _highTmp.textColor = TEXT_COLOR;
 
     [self.contentView addSubview:_highTmp];
@@ -112,10 +106,5 @@
     
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end
