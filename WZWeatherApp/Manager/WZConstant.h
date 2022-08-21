@@ -9,7 +9,7 @@
 
 
 
-#pragma -mark API宏定义
+#pragma mark- API宏定义
 
 #define WEATHER_ID @"HE2207282219281914"
 #define WEATHER_KEY @"a83ae2e814284c3eb8079b65bd63db5e"
@@ -20,11 +20,11 @@
 #define LIFT_TYPE @"1,2,3,4,5,6"
 
 
-#pragma -mark 屏幕宏定义
+#pragma mark- 屏幕宏定义
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 
-#pragma -mark 字体宏定义
+#pragma mark- 字体宏定义
 #define TITLE_FONT [UIFont boldSystemFontOfSize:34]
 #define TABLE_VIEW_TEXT_FONT [UIFont boldSystemFontOfSize:34]
 #define TABBAR_TEXT_FONT [UIFont boldSystemFontOfSize:20]

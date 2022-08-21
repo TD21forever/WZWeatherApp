@@ -10,7 +10,7 @@
 #import "UtilsManager.h"
 #import "WZConstant.h"
 
-#define TEXT_FONT [UIFont boldSystemFontOfSize:18]
+
 #define IMAGE_SIZE CGSizeMake(24, 24)
 
 
@@ -39,7 +39,7 @@
     _hour = [UILabel new];
     _hour.text = @"";
     _hour.textColor = TEXT_COLOR;
-    _hour.font = TEXT_FONT;
+    _hour.font = TABBAR_TEXT_FONT;
     
     [self.contentView addSubview:_hour];
     
@@ -64,7 +64,7 @@
     _temprature = [UILabel new];
     _temprature.text = @"现在";
     _temprature.textColor = TEXT_COLOR;
-    _temprature.font = TEXT_FONT;
+    _temprature.font = TABBAR_TEXT_FONT;
     
     [self.contentView addSubview:_temprature];
     

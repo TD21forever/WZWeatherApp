@@ -23,8 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-- (CityModel*)getCurCityWithCityName:(NSString*)cityName;
-
 + (NSArray*)getCityArray;
 
 + (CityModel*)getCurCityWithCityName:(NSString*)cityName;

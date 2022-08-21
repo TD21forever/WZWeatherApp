@@ -49,7 +49,6 @@
             NSString * cityName = @"";
             if(placemarks.count > 0){
                 CLPlacemark* placeMark = placemarks[0];
-                
                 if(!placeMark.locality || placeMark.locality.length == 0){
                     return;
                 }

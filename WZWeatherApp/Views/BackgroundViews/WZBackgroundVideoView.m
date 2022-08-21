@@ -19,14 +19,12 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
         NSURL *url = [[NSBundle mainBundle]URLForResource:@"default" withExtension:@"mp4"];
-        self.backgroundColor = [UIColor blackColor];
+        
         _player = [[AVPlayer alloc]initWithURL: url];
-    
         _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_player];
-        
         _playerLayer.frame = self.bounds;
-        
         _playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        
         [self.layer addSublayer:_playerLayer];
         [_player play];
         
@@ -47,7 +45,6 @@
         _player = newPlayer;
         [_player seekToTime:kCMTimeZero];
     }
-    
     _playerLayer.player = _player;
     _player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
     [_player play];

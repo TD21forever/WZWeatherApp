@@ -228,6 +228,8 @@
 		F523043728930617007D707B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F52304222892AE63007D707B /* WZConstant.h */,
+				F52304232892AE63007D707B /* WZConstant.m */,
 				F52304382893078A007D707B /* LocationManager.h */,
 				F52304392893078A007D707B /* LocationManager.m */,
 				F5F1EAB9289313B50016B191 /* NetworkManager.h */,
@@ -327,8 +329,6 @@
 				F52304322892D698007D707B /* Category */,
 				F5F1EABC28931E480016B191 /* Controller */,
 				F52304262892B9F0007D707B /* Views */,
-				F52304222892AE63007D707B /* WZConstant.h */,
-				F52304232892AE63007D707B /* WZConstant.m */,
 				F559EE502890EB700068208A /* Info.plist */,
 			);
 			path = WZWeatherApp;

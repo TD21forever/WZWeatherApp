@@ -72,6 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)encodeWithCoder:(NSCoder *)coder;
 - (instancetype)initWithCoder:(NSCoder *)coder;
+
 @end
 
 NS_ASSUME_NONNULL_END

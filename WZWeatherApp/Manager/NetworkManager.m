@@ -14,7 +14,6 @@ typedef void (^successBlock)(NSURLSessionDataTask * _Nonnull, id _Nullable);
     AFHTTPSessionManager * _manager;
 }
 
-
 + (instancetype)shared {
     static id _shared = nil;
     static dispatch_once_t onceToken;

@@ -118,8 +118,6 @@
 
 #pragma mark - Setter
 
-
-
 - (void)setNowModel:(NowModel *)nowModel{
     
     _nowModel = nowModel;
@@ -128,7 +126,6 @@
     _wind.text = [NSString stringWithFormat:@"%@%@级,风速%@公里/小时",nowModel.windDir,nowModel.windScale,nowModel.windSpeed];
     
 }
-
 
 - (void)setDailyModel:(DailyModel *)dailyModel{
     _dailyModel = dailyModel;

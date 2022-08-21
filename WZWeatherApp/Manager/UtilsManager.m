@@ -91,7 +91,6 @@ static NSMutableDictionary * _cache;
     }
     AVPlayer * player;
     NSString *filename = [NSString stringWithFormat:@"%@_%@",s1,dayOrNight];
-    NSURL *url = [[NSBundle mainBundle]URLForResource:filename withExtension:@"mp4"];
     player = [_cache objectForKey:filename];
 
     return player;

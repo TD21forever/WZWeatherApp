@@ -23,9 +23,7 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     self.window.rootViewController = tabbar;
-    
     
     [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"zh-hans",nil]  forKey:@"AppleLanguages"];
 

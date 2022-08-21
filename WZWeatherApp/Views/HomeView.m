@@ -22,11 +22,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.pagingEnabled = NO;
-        self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.showsVerticalScrollIndicator = NO;
-        self.tableHeaderView = self.headerView;
-        self.backgroundColor = [UIColor clearColor];
         self.allowsSelection = NO;
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.backgroundColor = [UIColor clearColor];
+        
+        self.tableHeaderView = self.headerView;
+                
         _backgroundVideoView = [[WZBackgroundVideoView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
         self.backgroundView = _backgroundVideoView;
     }
@@ -50,7 +52,6 @@
         self.backgroundColor = [UIColor clearColor];
         self.backgroundView = _backgroundVideoView;
     }
-    NSLog(@" current Mode %hhu",isCleanMode);
 }
 
 @end
